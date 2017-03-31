@@ -2,6 +2,12 @@
 
 This is the working area for a proposed DOTS use cases draft.
 
+**NOTE**: This branch contains the XML and text revisions of the published
+draft-ietf-dots-use-cases-04 revision. Ongoing work on the DOTS use cases draft
+is using kramdown-rfc2629 and xml2rfc to generate formatted versions of the
+draft. Please see the [DOTS WG repository](https://github.com/dotswg/) for
+details.
+
 ## Document Status
 
 This document is currently being actively developed by the authors.
