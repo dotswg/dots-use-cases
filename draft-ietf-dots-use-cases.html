@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Use cases for DDoS Open Threat Signaling</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Terminology and Acronyms"/>
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Requirements Terminology"/>
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Acronyms"/>
+<link href="#rfc.section.2.3" rel="Chapter" title="2.3 Terms"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Use Cases Scenarios"/>
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Inter-domain Use Cases"/>
+<link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 Enterprise with an upsteam transit provider DDoS mitigation Service"/>
+<link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Enterprise with on Cloud DDoS mitigation provider"/>
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Intra-domain Use Cases"/>
+<link href="#rfc.section.3.2.1" rel="Chapter" title="3.2.1 Homenet DDoS protection by ISP"/>
+<link href="#rfc.section.3.2.2" rel="Chapter" title="3.2.2 DDoS Orchestration"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Security Considerations"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Acknowledgments"/>
+<link href="#rfc.references" rel="Chapter" title="7 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.5.0 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Dobbins, R., Migault, D., Fouant, S., Moskowitz, R., Teague, N., Xia, L., and K. Nishizuka" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-dots-use-cases-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-3-27" />
+  <meta name="dct.abstract" content="The DDoS Open Threat Signaling (DOTS) effort is intended to provide a protocol that facilitates interoperability between multivendor solutions/services.  This document presents use cases to evaluate the interactions expected between the DOTS components as well as the DOTS exchanges.  The purpose of the use cases is to identify the interacting DOTS component, how they collaborate and what are the types of information to be exchanged." />
+  <meta name="description" content="The DDoS Open Threat Signaling (DOTS) effort is intended to provide a protocol that facilitates interoperability between multivendor solutions/services.  This document presents use cases to evaluate the interactions expected between the DOTS components as well as the DOTS exchanges.  The purpose of the use cases is to identify the interacting DOTS component, how they collaborate and what are the types of information to be exchanged." />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">DOTS</td>
+  <td class="right">R. Dobbins</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">Arbor Networks</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right">D. Migault</td>
+</tr>
+<tr>
+  <td class="left">Expires: September 28, 2017</td>
+  <td class="right">Ericsson</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">S. Fouant</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right"></td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">R. Moskowitz</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">HTT Consulting</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">N. Teague</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Verisign</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">L. Xia</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Huawei</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">K. Nishizuka</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">NTT Communications</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">March 27, 2017</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Use cases for DDoS Open Threat Signaling<br />
+  <span class="filename">draft-ietf-dots-use-cases-04</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>The DDoS Open Threat Signaling (DOTS) effort is intended to provide a protocol that facilitates interoperability between multivendor solutions/services.  This document presents use cases to evaluate the interactions expected between the DOTS components as well as the DOTS exchanges.  The purpose of the use cases is to identify the interacting DOTS component, how they collaborate and what are the types of information to be exchanged.</p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on September 28, 2017.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<li>2.   <a href="#rfc.section.2">Terminology and Acronyms</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Requirements Terminology</a></li>
+<li>2.2.   <a href="#rfc.section.2.2">Acronyms</a></li>
+<li>2.3.   <a href="#rfc.section.2.3">Terms</a></li>
+</ul><li>3.   <a href="#rfc.section.3">Use Cases Scenarios</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Inter-domain Use Cases</a></li>
+<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">Enterprise with an upsteam transit provider DDoS mitigation Service</a></li>
+<li>3.1.2.   <a href="#rfc.section.3.1.2">Enterprise with on Cloud DDoS mitigation provider</a></li>
+</ul><li>3.2.   <a href="#rfc.section.3.2">Intra-domain Use Cases</a></li>
+<ul><li>3.2.1.   <a href="#rfc.section.3.2.1">Homenet DDoS protection by ISP</a></li>
+<li>3.2.2.   <a href="#rfc.section.3.2.2">DDoS Orchestration</a></li>
+</ul></ul><li>4.   <a href="#rfc.section.4">Security Considerations</a></li>
+<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<li>6.   <a href="#rfc.section.6">Acknowledgments</a></li>
+<li>7.   <a href="#rfc.references">References</a></li>
+<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>7.2.   <a href="#rfc.references.2">Informative References</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
+<p id="rfc.section.1.p.1">Currently, distributed denial-of-service (DDoS) attack mitigation solutions/services are largely based upon siloed, proprietary communications paradigms which result in vendor/service lock-in.  As a side-effect, this makes the configuration, provisioning, operation, and activation of these solutions a highly manual and often time- consuming process.  Additionally, coordination of multiple DDoS mitigation solutions/services simultaneously engaged in defending the same organization against DDoS attacks is fraught with both technical and process-related hurdles.  This greatly increase operational complexity and often results in suboptimal DDoS attack mitigation efficacy.</p>
+<p id="rfc.section.1.p.2">The DDoS Open Threat Signaling (DOTS) effort is intended to provide a protocol that facilitates interoperability between multivendor DDoS mitigation solutions/services.  As DDoS solutions/services are broadly heterogeneous among different vendors, the primary goal for DOTS is to provide a high level interaction with these DDoS solutions/services such as initiating or terminating DDoS mitigation assistance.</p>
+<p id="rfc.section.1.p.3">It should be noted that DOTS is not in and of itself intended to perform orchestration functions duplicative of the functionality being developed by the [I2NSF] WG; rather, DOTS is intended to allow devices, services, and applications to request DDoS attack mitigation assistance and receive mitigation status updates from systems of this nature.</p>
+<p id="rfc.section.1.p.4">The use cases presented in the document are intended to provide examples of communications interactions DOTS-enabled nodes in both inter- and intra-organizational DDoS mitigation scenarios.  These use cases are expected to provide inputs for the design of the DOTS protocol(s).</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-acronyms" id="terminology-and-acronyms">Terminology and Acronyms</a></h1>
+<h2 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#requirements-terminology" id="requirements-terminology">Requirements Terminology</a></h2>
+<p id="rfc.section.2.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in RFC 2119 <a href="#RFC2119">[RFC2119]</a>.</p>
+<h2 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#acronyms" id="acronyms">Acronyms</a></h2>
+<p id="rfc.section.2.2.p.1">This document makes use of the same terminology and definitions as <a href="#I-D.ietf-dots-requirements">[I-D.ietf-dots-requirements]</a>, except where noted.</p>
+<h2 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#terms" id="terms">Terms</a></h2>
+<p id="rfc.section.2.3.p.1">Inter-organizational: a DOTS communications relationship between distinct organizations with separate spans of administrative control.  Typical inter-organizational DOTS communication relationships would be between a DDoS mitigation service provider and an end-customer organizational which requires DDoS mitigation assistance; between multiple DDoS mitigation service providers coordinating mutual defense of a mutual end-customer; or between DDoS mitigation service providers which are requesting additional DDoS mitigation assistance in for attacks which exceed their inherent DDoS mitigation capacities and/or capabilities.</p>
+<p id="rfc.section.2.3.p.2">Intra-organizational: a DOTS communications relationship between various elements within a single span of administrative control.  A typical intra-organizational DOTS communications relationship would be between DOTS clients, DOTS gateways, and DOTS servers within the same organization.</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#use-case-scenarios" id="use-case-scenarios">Use Cases Scenarios</a></h1>
+<p id="rfc.section.3.p.1">This section provides a high-level description of scenarios addressed by DOTS.  In both sections, the scenarios are provided in order to illustrate the use of DOTS in typical DDoS attack scenarios.  They are not definitive, and other use cases are expected to emerge with widespread DOTS deployment.</p>
+<p id="rfc.section.3.p.2">All scenarios present a coordination between the targeted organization, the DDoS attack telemetry and the mitigator.  The coordination and communication between these entity depends, for example on the characteristic or functionality of the equipment, the reliability of the information provided by DDoS attack telemetry, and the business relationship between the DDoS target domain and the mitigator.</p>
+<p id="rfc.section.3.p.3">More explicitly, in some cases, the DDoS attack telemetry may simply activate a DDoS mitigation, whereas in other cases, it may collaborate by providing some information about an attack.  In some cases, the DDoS mitigation may be orchestrated, which includes selecting a specific appliance as well as starting/ending a mitigation.</p>
+<h2 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#interdomain-use-cases" id="interdomain-use-cases">Inter-domain Use Cases</a></h2>
+<h3 id="rfc.section.3.1.1"><a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#interdomain-upstream-mit" id="interdomain-upstream-mit">Enterprise with an upsteam transit provider DDoS mitigation Service</a></h3>
+<p id="rfc.section.3.1.1.p.1">In this scenario, an enterprise network with self-hosted Internet-facing properties such as Web servers, authoritative DNS servers, and VoIP PBXes has an intelligent DDoS mitigation system (IDMS) deployed to protect those servers and applications from DDoS attacks.  In addition to their on-premise DDoS defense capability, they have contracted with their Internet transit provider for DDoS mitigation services which threaten to overwhelm their transit link bandwidth.</p>
+<p id="rfc.section.3.1.1.p.2">The IDMS is configured such that if the incoming Internet traffic volume exceeds 50% of the provisioned upstream Internet transit link capacity, the IDMS will request DDoS mitigation assistance from the upstream transit provider.</p>
+<p id="rfc.section.3.1.1.p.3">The communication to trigger, manage, and finalize a DDoS mitigation between the enterprise IDMS and the transit provider is performed using DOTS.  The enterprise IDMS implements a DOTS client while the transit provider implements a DOTS server.</p>
+<p id="rfc.section.3.1.1.p.4">When the IDMS detects an inbound DDoS attack targeting the enterprise servers and applications, it immediately begins mitigating the attack.</p>
+<p id="rfc.section.3.1.1.p.5">During the course of the attack, the inbound traffic volume exceeds the 50% threshold; the IDMS DOTS client signals the DOTS server on the upstream transit provider network to initiate DDoS mitigation.  The DOTS server signals the DOTS client that it can service this request, and mitigation is initiated on the transit provider network.</p>
+<p id="rfc.section.3.1.1.p.6">Over the course of the attack, the DOTS server on the transit provider network periodically signals the DOTS client on the enterprise IDMS in order to provide mitigation status information, statistics related to DDoS attack traffic mitigation, and related information.  Once the DDoS attack has ended, the DOTS server signals the enterprise IDMS DOTS client that the attack has subsided.</p>
+<p id="rfc.section.3.1.1.p.7">The enterprise IDMS then requests that DDoS mitigation services on the upstream transit provider network be terminated.  The DOTS server on the transit provider network receives this request, communicates with the transit provider orchestration system controlling its DDoS mitigation system to terminate attack mitigation, and once the mitigation has ended, confirms the end of upstream DDoS mitigation service to the enterprise IDMS DOTS client.</p>
+<h3 id="rfc.section.3.1.2"><a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#interdomain-cloud-mit" id="interdomain-cloud-mit">Enterprise with on Cloud DDoS mitigation provider</a></h3>
+<p id="rfc.section.3.1.2.p.1">This use case details an enterprise that has a local DDoS detection and classification capability and may or may not have a mitigation capability.  The enterprise is contracted with a cloud DDoS mitigation provider who can redirect (offramp) traffic away from the enterprise, provide scrubbing services and return clean traffic back to the enterprise (onramp) on an ad-hoc, on demand basis.</p>
+<p id="rfc.section.3.1.2.p.2">The enterprise may, either by hard coding or on a case by case basis, determine thresholds at which a request for mitigation is triggered indicating to the cloud provider that traffic should be redirected and scrubbed.</p>
+<p id="rfc.section.3.1.2.p.3">The communication to trigger, manage, and finalize a DDoS mitigation between the enterprise and the Cloud provider is performed using DOTS.  The enterprise implements a DOTS client while the Cloud Provider implements a DOTS server.</p>
+<p id="rfc.section.3.1.2.p.4">The enterprise detection and classification systems encompass a DOTS client and the cloud provider a DOTS server.</p>
+<p id="rfc.section.3.1.2.p.5">When an attack is detected an automated or manual DOTS mitigation request will be generatd and sent to the cloud provider.  The cloud provider will assess the request for validity and if passed a mitigation action may then be initiated.  This action will usually involve the offramp of all traffic destined to the target for further scrutiny and filtering by the cloud provider.  This should not only result in an alleviation of pressure on the enterprise network but also on its upstream provider and peers.</p>
+<p id="rfc.section.3.1.2.p.6">The cloud provider should signal via DOTS to the enterprise that a mitigation request has been received and acted upon and should also include a basic situational status of the attack.  The cloud provider may respond periodically with additional updates on the status to enable the enterprise to make an informed decision on whether to maintain or cancel the mitigation.  An alternative approach would be for the DOTS client mitigation request to include a time to live (ttl) for the mitigation which may be extended by the client should the attack still be ongoing as the ttl reaches expiration.</p>
+<p id="rfc.section.3.1.2.p.7">A variation of this use case may be that the enterprise is providing a flow based monitoring and analysis service to customers whose networks may be protected by any one of a number of 3rd party providers.  The enterprise in question may integrate with these 3rd party providers using DOTS and signal accordingly when a customer is attacked - the enterprise may then manage the life-cycle of the attack on behalf of the enterprise.</p>
+<h2 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#intradomain-use-cases" id="intradomain-use-cases">Intra-domain Use Cases</a></h2>
+<h3 id="rfc.section.3.2.1"><a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#intradomain-homenet" id="intradomain-homenet">Homenet DDoS protection by ISP</a></h3>
+<p id="rfc.section.3.2.1.p.1">In this use case home networks or small businesses networks (SOHO), subscribe with their upstream ISP a DDoS mitigation service.</p>
+<p id="rfc.section.3.2.1.p.2">Home networks run with limited bandwidth as well as limited routing resources, while they are expected to provide services reachable from the outside <a href="#RFC7368">[RFC7368]</a>.  This makes such organizations some easy targets to DDoS attacks. In addition, these DDoS attacks might even not be noticed by the upstream ISP.</p>
+<p id="rfc.section.3.2.1.p.3">This scenario is considered as an intra-domain as ISPs have a specific relationship with these customers.  The ISP is the connectivity provider, and in some cases, they even provides the CPE with a set of associated services.  Moreover, in case of any connectivity issue the customer is likely to call the hotline.  In order to improve the QoS of the connectivity as well as to automate the request for DDoS mitigation, ISP is likely to consider a standard mean for CPEs to notify when they are under a suspected DDoS.  Such notification may be triggered automatically or manually.  As the ISP and the customer share a common interest in mitigating the DDoS attack, this slightly differs from cases where a contract is negotiated with a third party, such as in the inter-domain use cases.</p>
+<p id="rfc.section.3.2.1.p.4">In most cases, CPEs are unlikely to diagnose whether an DDoS attack is ongoing or not and simply rely on the upstream equipment provided by the ISP for detection and potential mitigation.</p>
+<p id="rfc.section.3.2.1.p.5">The DDoS Mitigation service of the ISP may be hard coded or may be configured by the customer manually or automatically while the CPE is being connected to the Internet -- eventually the DHCP server may provide the DDoS Mitigation service via specific DHCP options.</p>
+<p id="rfc.section.3.2.1.p.6">The communication to trigger a DDoS mitigation between the home network and the ISP is performed using DOTS.  The home network CPE implements a DOTS client while the ISP implements a DOTS server.</p>
+<p id="rfc.section.3.2.1.p.7">The DOTS Client on the CPE monitors the status of CPE&#8217;s resource and link bandwidth usage.  If something unusual happens based on preconfigured throughput or some heuristics methods, the DOTS Client sends a DOTS mitigation request to the ISP DOTS Server.  Typically, a default configuration with no additional information associated to the DOTS mitigation request is expected.  The ISP derives traffic to mitigate from the CPE IP address.</p>
+<p id="rfc.section.3.2.1.p.8">In some cases, the DOTS mitigation request contains options such as some IP addresses or prefixes that belongs to a whitelist or respectively to a blacklist.  In this case, the white and black lists are not associated to some analysis performed by the CPE -- as the CPE is clearly not expected to analyze such attacks.  Instead these are part of some configuration parameters.  For example, in the case of small business, one may indicate specific legitimate IP addresses such as those used for VPNs, or third party services the company is likely to set a session.  Similarly, the CPE may provides the IP addresses of the assets to be protected inside the network.  Such options may include the IP address as well as a service description.  Similarly to the previous blacklist and whitelist, such information are not derived from a traffic analysis performed by the CPE, but instead are more related to configuration parameters.</p>
+<p id="rfc.section.3.2.1.p.9">Upon receiving the DOTS mitigation request, the ISP acknowledges its reception and confirms DDoS mitigation starts or not.  Such feed back is mostly to avoid retransmission of the request.</p>
+<p id="rfc.section.3.2.1.p.10">Note that the ISP is connected to multiple CPEs and as such the CPE can potentially perform DDoS attack to the DOTS server.  ISP may use relays to absorbs the traffic.  In addition, such attack may be triggered by a large scale DDoS attack, which is expected to be detected and mitigated by the upstream architecture.</p>
+<p id="rfc.section.3.2.1.p.11">ISP may activate mitigation for the traffic associated to the CPE sending the alert or instead to the traffic associated to all CPE.  Such decisions are not part of DOTS, but instead depend on the policies of the ISP network administrator.</p>
+<p id="rfc.section.3.2.1.p.12">It is unlikely the CPE will follow the status of the mitigation.  The ISP is only expected to inform the CPE the mitigation has been stopped.</p>
+<p id="rfc.section.3.2.1.p.13">Upon receipt of such notification the CPE may re-activate the monitoring jobs and thus is likely to provide some further DOTS alert.</p>
+<h3 id="rfc.section.3.2.2"><a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#intradomain-ddos-orchestration" id="intradomain-ddos-orchestration">DDoS Orchestration</a></h3>
+<p id="rfc.section.3.2.2.p.1">In this use case, one or multiple telemetry systems or monitoring devices like a flow collector monitor a network -- typically an ISP network.  Upon detection of a DDoS attack, these telemetry systems alert an orchestrator in charge of coordinating the various DDoS mitigation systems within the domain.  The telemetry systems may be configured to provide some necessary or useful pieces of informations, such as a preliminary analysis of the observation to the orchestrator.</p>
+<p id="rfc.section.3.2.2.p.2">The orchestrator analyses the various information it receives from specialized equipements, and elaborates one or multiple DDoS mitigation strategies.  In some case, a manual confirmation may also be required to chose a proposed strategy or to start the DDoS mitigation.  The DDoS mitigation may consists in multiple steps such as configuring the network, the various hardware or already instantiated DDoS mitigation functions.  In some cases, some specific virtual DDoS mitigation functions need to be instantiated and properly chained between each other.  Eventually, the coordination of the mitigation may involved external DDoS resources such as a transit provider <a href="#interdomain-upstream-mit">Section 3.1.1</a> or a cloud provider <a href="#interdomain-cloud-mit">Section 3.1.2</a>.</p>
+<p id="rfc.section.3.2.2.p.3">The communication to trigger a DDoS mitigation between the telemetry and monitoring systems and the orchestrator is performed using DOTS. The telemetry systems implements a DOTS client while the Orchestrator implements a DOTS server.</p>
+<p id="rfc.section.3.2.2.p.4">The communication between to select a DDoS strategy by a network administrator and the orchestrator is also performed using DOTS.  The network administrator via its web interfaces implements a DOTS client while the Orchestrator implements a DOTS server.</p>
+<p id="rfc.section.3.2.2.p.5">The communication between the Orchestrator and the DDoS mitigation systems is performed using DOTS.  The Orchestrator implements a DOTS client while the DDoS mitigation systems implement a DOTS server.</p>
+<p id="rfc.section.3.2.2.p.6">The configuration aspects of each DDoS mitigation systems, as well as the instantiations of DDoS mitigation functions or network configuration is not part of DOTS.  Similarly the discovery of the available DDoS mitigation functions is not pat of DOTS.</p>
+<p id="rfc.section.3.2.2.p.7">The Telemetry or monitoring systems monitors each various traffic network and each performs their measurement tasks.  They are configure so that when an event or some measurements reach a predefined level to report a DOTS mitigation request to the orchestrator.  The DOTS mitigation request may be associated with some element such as specific reporting, or analysis.</p>
+<p id="rfc.section.3.2.2.p.8">Upon receipt of the DOTS mitigation request from the telemetry system, the orchestrator responds with an acknowledgement, to avoid retransmission of the request for mitigation.  The status of the DDoS mitigation indicates the orchestrator is in an analysing phase.  The orchestrator begins collecting various informations from various telemetry systems on the network in order to correlate the measurements and provide an analyse of the event.  Eventually, the orchestrator may ask additional informations to the telemetry system that just sent the DOTS request, however, the collection of these information is performed outside DOTS.</p>
+<p id="rfc.section.3.2.2.p.9">The orchestrator may be configured to start a DDoS mitigation upon approval from a network administrator.  The analysis from the orchestrator is reported to the network administrator via a web interface.  If the network administrator decides to start the mitigation, she order through her web interface a DOTS client to send a request for DDoS mitigation.  This request is expected to be associated with a context that identifies the DDoS mitigation selected.</p>
+<p id="rfc.section.3.2.2.p.10">Upon receiving the DOTS request for DDoS mitigation from the network administrator, the orchestrator orchestrates the DDoS mitigation according to the specified strategy.  It status first indicates the DDoS mitigation is starting while not effective.  In fact the orchestrator is expected to proceed to a significant number of configurations.</p>
+<p id="rfc.section.3.2.2.p.11">Orchestration of the DDoS mitigation systems works similarly as described in <a href="#interdomain-upstream-mit">Section 3.1.1</a> or <a href="#interdomain-cloud-mit">Section 3.1.2</a>.  The orchestrator indicates with its status the DDoS Mitigation is effective.</p>
+<p id="rfc.section.3.2.2.p.12">When the DDoS mitigation is finished on the DDoS mitigation systems, the orchestrator indicates to the Telemetry systems as well as to the network administrator the DDoS mitigation is finished.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
+<p id="rfc.section.4.p.1">DOTS is at risk from three primary attacks: DOTS agent impersonation, traffic injection, and signaling blocking.  The DOTS protocol MUST be designed for minimal data transfer to address the blocking risk.</p>
+<p id="rfc.section.4.p.2">Impersonation and traffic injection mitigation can be managed through current secure communications best practices.  DOTS is not subject to anything new in this area.  One consideration could be to minimize the security technologies in use at any one time.  The more needed, the greater the risk of failures coming from assumptions on one technology providing protection that it does not in the presence of another technology.</p>
+<p id="rfc.section.4.p.3">Additional details of DOTS security requirements may be found in <a href="#I-D.ietf-dots-requirements">[I-D.ietf-dots-requirements]</a>.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
+<p id="rfc.section.5.p.1">No IANA considerations exist for this document at this time.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
+<p id="rfc.section.6.p.1">TBD</p>
+<h1 id="rfc.references"><a href="#rfc.references">7.</a> References</h1>
+<h2 id="rfc.references.1"><a href="#rfc.references.1">7.1.</a> Normative References</h2>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="RFC2119">[RFC2119]</b>
+      </td>
+      <td class="top"><a>Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="rfc.references.2"><a href="#rfc.references.2">7.2.</a> Informative References</h2>
+<table>
+  <tbody>
+    <tr><td class="reference"><b id="APACHE">[APACHE]</b></td><td class="top"><a href="https://www.modsecurity.org">Apache mod_security</a>", n.d..</td>, "</tr>
+    <tr>
+      <td class="reference">
+        <b id="I-D.ietf-dots-requirements">[I-D.ietf-dots-requirements]</b>
+      </td>
+      <td class="top"><a>Mortensen, A.</a>, <a>Moskowitz, R.</a> and <a>T. Reddy</a>, <a href="http://tools.ietf.org/html/draft-ietf-dots-requirements-04">Distributed Denial of Service (DDoS) Open Threat Signaling Requirements</a>", Internet-Draft draft-ietf-dots-requirements-04, March 2017.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC6335">[RFC6335]</b>
+      </td>
+      <td class="top"><a>Cotton, M.</a>, <a>Eggert, L.</a>, <a>Touch, J.</a>, <a>Westerlund, M.</a> and <a>S. Cheshire</a>, "<a href="http://tools.ietf.org/html/rfc6335">Internet Assigned Numbers Authority (IANA) Procedures for the Management of the Service Name and Transport Protocol Port Number Registry</a>", BCP 165, RFC 6335, DOI 10.17487/RFC6335, August 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7368">[RFC7368]</b>
+      </td>
+      <td class="top"><a>Chown, T.</a>, <a>Arkko, J.</a>, <a>Brandt, A.</a>, <a>Troan, O.</a> and <a>J. Weil</a>, "<a href="http://tools.ietf.org/html/rfc7368">IPv6 Home Networking Architecture Principles</a>", RFC 7368, DOI 10.17487/RFC7368, October 2014.</td>
+    </tr>
+    <tr><td class="reference"><b id="RRL">[RRL]</b></td><td class="top"><a href="https://deepthought.isc.org/article/AA-00994/0/Using-the-Response-Rate-Limiting-Feature-in-BIND-9.10.html">BIND RRL</a>", August 2014.</td>, "</tr>
+  </tbody>
+</table>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Authors' Addresses</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Roland Dobbins</span> 
+	  <span class="n hidden">
+		<span class="family-name">Dobbins</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Arbor Networks</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline">Singapore</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:rdobbins@arbor.net">rdobbins@arbor.net</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Daniel Migault</span> 
+	  <span class="n hidden">
+		<span class="family-name">Migault</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Ericsson</span>
+	<span class="adr">
+	  <span class="vcardline">8400 boulevard Decarie</span>
+
+	  <span class="vcardline">
+		<span class="locality">Montreal, QC</span>,  
+		<span class="region"></span>
+		<span class="code">H4P 2N2</span>
+	  </span>
+	  <span class="country-name vcardline">Canada</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:daniel.migault@ericsson.com">daniel.migault@ericsson.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Stefan Fouant</span> 
+	  <span class="n hidden">
+		<span class="family-name">Fouant</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:stefan.fouant@copperriverit.com">stefan.fouant@copperriverit.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Robert Moskowitz</span> 
+	  <span class="n hidden">
+		<span class="family-name">Moskowitz</span>
+	  </span>
+	</span>
+	<span class="org vcardline">HTT Consulting</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality">Oak Park, MI</span>,  
+		<span class="region"></span>
+		<span class="code">48237</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:rgm@labs.htt-consult.com">rgm@labs.htt-consult.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Nik Teague</span> 
+	  <span class="n hidden">
+		<span class="family-name">Teague</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Verisign</span>
+	<span class="adr">
+	  <span class="vcardline">12061 Bluemont Way</span>
+
+	  <span class="vcardline">
+		<span class="locality">Reston, VA</span>,  
+		<span class="region"></span>
+		<span class="code">20190</span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:nteague@verisign.com">nteague@verisign.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Liang Xia</span> 
+	  <span class="n hidden">
+		<span class="family-name">Xia</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Huawei</span>
+	<span class="adr">
+	  <span class="vcardline">No. 101, Software Avenue, Yuhuatai District</span>
+
+	  <span class="vcardline">
+		<span class="locality">Nanjing</span>,  
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline">China</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:Frank.xialiang@huawei.com">Frank.xialiang@huawei.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Kaname Nishizuka</span> 
+	  <span class="n hidden">
+		<span class="family-name">Nishizuka</span>
+	  </span>
+	</span>
+	<span class="org vcardline">NTT Communications</span>
+	<span class="adr">
+	  <span class="vcardline">GranPark 16F 3-4-1 Shibaura, Minato-ku</span>
+
+	  <span class="vcardline">
+		<span class="locality">Tokyo</span>,  
+		<span class="region"></span>
+		<span class="code">108-8118</span>
+	  </span>
+	  <span class="country-name vcardline">Japan</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:kaname@nttv6.jp">kaname@nttv6.jp</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
