@@ -549,8 +549,8 @@ DDoS mitigation is starting while not effective.</t>
    
 <t>Orchestration of the DDoS mitigation systems works similarly as
 described in <xref target="sec-upstream"/> and <xref
-target="sec-cloud"/>.  The Orchestrator indicates with its status the
-DDoS mitigation is effective.</t>
+target="sec-cloud"/>.  The Orchestrator indicates with its status wether 
+the DDoS mitigation is effective.</t>
 
 <t>When the DDoS mitigation is finished on the DDoS mitigation systems,
 the Orchestrator indicates to the telemetry systems as well as to the
