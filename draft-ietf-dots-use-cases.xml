@@ -544,12 +544,12 @@ with a context that identifies the DDoS mitigation selected.</t>
 
 <t>Upon receiving the DOTS request for DDoS mitigation from the network
 administrator, the orchestrator orchestrates the DDoS mitigation
-according to the specified strategy.  It status first indicates  the
+according to the specified strategy.  Its status indicates the
 DDoS mitigation is starting while not effective.</t>
    
 <t>Orchestration of the DDoS mitigation systems works similarly as
 described in <xref target="sec-upstream"/> and <xref
-target="sec-cloud"/>.  The Orchestrator indicates with its status wether 
+target="sec-cloud"/>.  The Orchestrator indicates with its status whether 
 the DDoS mitigation is effective.</t>
 
 <t>When the DDoS mitigation is finished on the DDoS mitigation systems,
