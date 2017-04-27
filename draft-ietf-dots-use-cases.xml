@@ -515,6 +515,34 @@ the instantiations of DDoS mitigation functions or network configuration
 is not part of DOTS. Similarly the discovery of the available DDoS
 mitigation functions is not part of DOTS.</t>
 
+<figure>
+    <artwork>
+        
+        
+        +----------+
+        | network  |C
+        | adminis  |&lt;-+
+        | trator   |  |
+        +----------+  |
+                      |                       (internal)
+        +----------+  | S+--------------+     +-----------+
+        |telemetry/|  +-&gt;|              |C   S| DDoS      |+
+        |monitoring|&lt;---&gt;| Orchestrator |&lt;---&gt;| mitigation||
+        |systems   |C   S|              |&lt;-+  | systems   ||
+        +----------+     +--------------+C |  +-----------+|
+                                           |    +----------+
+                                           |
+                                           |  (external)
+                                           |  +-----------+
+                                           | S| DDoS      |
+                                           +-&gt;| mitigation|
+                                              | systems   |
+                                              +-----------+
+        * C is for DOTS client functionality
+        * S is for DOTS server functionality
+    </artwork>
+</figure>
+<t>Figure 1: DDoS Orchestration</t>
 
 <!-- attack - mitigation description --> 
 
