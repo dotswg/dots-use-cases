@@ -239,9 +239,14 @@ have contracted with their Internet access provider for DDoS mitigation
 services which threaten to overwhelm their WAN interconnection link(s)
 bandwidth.</t>
 
-<t>The DMS is configured such that if the incoming Internet traffic volume exceeds, e.g., 50% of the provisioned upstream Internet interconnection link(s) capacity, the DMS will request DDoS mitigation assistance from the upstream access provider. </t>
+<t>The DMS is configured such that if the incoming Internet traffic
+volume exceeds, e.g., 50% of the provisioned upstream Internet
+interconnection link(s) capacity, the DMS will request DDoS mitigation
+assistance from the upstream access provider. </t>
    
-<t> Before any communication takes place between DOTS agents, security credentials are provisioned on these agents so that only authorized entities can trigger mitigation actions. </t>   
+<t> Before any communication takes place between DOTS agents, security
+credentials are provisioned on these agents so that only authorized 
+entities can trigger mitigation actions. </t>   
 
 <!-- dots relation -->  
 
@@ -351,58 +356,104 @@ enterprise.</t>
 
 </section>
 
+	
 </section>
 
 <section title="Intra-domain Use Cases">
 
-<section title="Homenet DDoS Protection by ISP">
+<section title="Homenet DDoS Detection Collaboration for ISP network management">
 
 <!-- environment -->
 
-<t>In this use case home networks or small businesses networks (SOHO),
-subscribe with their upstream ISP a DDoS mitigation service.</t> 
+<t>Home networks run with (limited) bandwidth as well as limited 
+routing resources, while they are expected to provide services 
+reachable from the outside <xref target="RFC7368"/>. This makes such
+networks some easy targets to DDoS attacks via their WAN interface.
+As these DDoS attacks are easy to perform, they may remain undetected 
+by the upstream ISP. When the CPE is congested, the customer is 
+likely to call the ISP hotline. In order to improve the quality of 
+experience of the connectivity as well as to automate the request for
+DDoS mitigation, ISPs are likely to consider a standard mean for CPEs 
+to automatically inform a dedicated service mitigation platform when
+they are under a suspected DDoS.</t>
+ 
+<t>Note also that this section only considers DDoS attacks CPE or 
+services in the home network are encountering. This differs from DDoS
+attacks the CPE or any device within the home network may take part 
+of - such as botnets. In the later attacks, the home network 
+generates traffic under the control of a botmaster. Such attacks may 
+only be detected once the attacks have been characterized. It would
+be tempting to consider a feature in the DOTS protocol to allow a 
+DOTS server to inform a CPE that some suspect traffic is being sent 
+by the CPE so that appropriate actions are undertaken by the 
+CPE/user. Nevertheless, this feature would require some interaction 
+with the CPE administrator. Such scenario is outside the scope of 
+this document.</t>
 
-<t>This scenario is considered as an intra-domain as ISPs are the
-connectivity provider, and in some cases, they provide the CPE they are
-partly able to manage through a set of associated services. In these
-cases, the CPE can also be seen as shared between the ISP network and
-the home network.</t>
+<t>In this use case, ISPs are willing to prevent their customer
+undergoing DDoS attacks in order to enhance the quality of experience 
+of their customers, to avoid unnecessary costly call on hot lines as 
+well as to optimize the bandwidth of their network. A key challenge 
+for the ISP is to detect DDoS attacks. In fact, DDoS detection is not 
+only fine grained but is also expected to be different for each home 
+network or small businesses networks (SOHO), and the ISP is unlikely 
+to have sufficient resource to inspect the traffic of all its 
+customers. </t>
+ 
+<t>In order to address these challenges, ISPs are delegating the DDoS 
+detection to CPE of home network or SOHO. Outsourcing the detection 
+on the CPE provides the following advantages to the ISP: 1) Avoid 
+the ISP to dedicate a huge amount of resource for deep packet 
+inspection over a large amount of traffic with a specific security 
+policies associated to each home network. It is expected that such 
+traffic only constitutes a small fraction of the total traffic the
+ISP is responsible for. 2) DDoS detection is deployed in a scalable 
+way. 3) Provide more deterministic DDoS attack detection. For 
+example, what could be suspected to be an UDP flood by the ISP may be 
+consented by the terminating point hosted in the home network or
+SOHO. In fact, without specific home network security policies, the 
+ISP is likely to detect DDoS attack over regular traffic or to miss 
+DDoS attacks targeting a specific home network or CPE. In the first 
+case, this would result in the ISP spending unnecessary resources and 
+in the second case this would directly impact the quality of 
+experience of the customer.</t> 
 
-<t>When the CPE is congested, the customer is likely to call the ISP
-hotline. In order to improve the QoS of the connectivity as well as to
-automate the request for DDoS mitigation, ISP is likely to consider a
-standard mean for CPEs to notify when they are under a suspected DDoS.
-Such notification may be triggered automatically or manually. As the
-ISP and the customer share a common interest in mitigating the DDoS
-attack, this slightly differs from cases where a contract is negotiated
-with a third party, such as in the inter-domain use cases.</t>  
+<t>Note that in this scenario slightly differs from the "Enterprise 
+with an upstream transit provider DDoS mitigation Service" scenario 
+described in <xref target="sec-entreprise-upsteam"/>. In this 
+scenario, the detection DDoS is motivated by the ISP in order to 
+operate appropriately its network. For that purpose, it requires some 
+collaboration with the home network. In <xref 
+target="sec-entreprise-upsteam"/>, the target network requests a 
+mitigation service from the upstream transit provider in order to 
+operate its services. </t>
 
-
-<t>Home networks run with (limited) bandwidth as well as limited routing
-resources, while they are expected to provide services reachable from
-the outside <xref target="RFC7368"/>. This makes such networks some easy
-targets to DDoS attacks targeting the WAN interface. As these DDoS
-attacks are easy to performed, they may remain undetected by the
-upstream ISP performs some fine granularity measurements in its core
-network. Such monitoring introduce unnecessary costs and monitoring.
-Instead, alerts are generated while CPE are undergoing such attacks.</t>
-   
-<t>Note also that DDoS attacks CPE are undergoing differs from DDoS
-attacks the CPE or any device within the home network may take part of -
-such as botnets. In the later attacks, the home network generate traffic
-under the control of a botmaster. Such attacks may only detected once
-the attacks has been characterized. Such scenario is outside the scope
-of this document.</t>
+<t>Even though the motivations differ, there are still significant 
+advantages for the home network to collaborate. On the home network 
+or SOHO perspective such collaboration provides the following 
+advantages: 1) If it removes the flows contributing to a DDoS attacks,
+then it enhances the quality of experience of the users of the targeted
+services or the entire home network. 2) If mitigation is being handled
+by the ISP rather then the home network, then it reduces 
+the management of DDoS attacks by the network administrator which 
+involves detection as well as mitigation as well as the provisioning
+of extra resources. 3) If the DDoS detection is based on information
+specific to the home network, such as for example the description of
+the services, the hosts capacities or the network topology, then 
+performing the DDoS detection by the home network instead of the ISP
+avoids the home network to leak private information to the ISP. In that
+sense, it better preserves the home 
+network or SOHO privacy while enabling a better detection. However, the 
+request for mitigation may still leak some informations. ISPs must 
+not retrieve sensitive data without the consent of the user. This is 
+usually captured in administrative contracts that are out of scope of 
+this document.</t>
       
-<t>In most cases, CPEs are unlikely to diagnose whether an DDoS attack
-is ongoing or not; these CPEs rely on the upstream equipment provided by
-the ISP for detection and potential mitigation.</t>
-   
-<t>The contact address of the DDoS Mitigation service of the ISP may be
-hard coded or may be configured manually or automatically (e.g.,
-eventually the DHCP server may provide the DDoS Mitigation service via
-specific DHCP options).</t>
-
+<t>When the CPE suspects an attack, it notifies automatically or 
+the ISP. The contact address of the DDoS Mitigation service 
+of the ISP may be hard coded or may be configured manually or 
+automatically (e.g., eventually the DHCP server may provide the DDoS 
+mitigation service via specific DHCP options).</t>
 <!-- dots relation -->  
 
 <t>The communication to trigger a DDoS mitigation between the home
