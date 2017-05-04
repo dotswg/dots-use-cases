@@ -239,9 +239,14 @@ have contracted with their Internet access provider for DDoS mitigation
 services which threaten to overwhelm their WAN interconnection link(s)
 bandwidth.</t>
 
-<t>The DMS is configured such that if the incoming Internet traffic volume exceeds, e.g., 50% of the provisioned upstream Internet interconnection link(s) capacity, the DMS will request DDoS mitigation assistance from the upstream access provider. </t>
+<t>The DMS is configured such that if the incoming Internet traffic
+volume exceeds, e.g., 50% of the provisioned upstream Internet
+interconnection link(s) capacity, the DMS will request DDoS mitigation
+assistance from the upstream access provider. </t>
    
-<t> Before any communication takes place between DOTS agents, security credentials are provisioned on these agents so that only authorized entities can trigger mitigation actions. </t>   
+<t> Before any communication takes place between DOTS agents, security
+credentials are provisioned on these agents so that only authorized 
+entities can trigger mitigation actions. </t>   
 
 <!-- dots relation -->  
 
@@ -426,13 +431,19 @@ operate its services. </t>
 <t>Even though the motivations differ, there are still significant 
 advantages for the home network to collaborate. On the home network 
 or SOHO perspective such collaboration provides the following 
-advantages: 1) It enhances the quality of experience. 2) it reduces 
+advantages: 1) If it removes the flows contributing to a DDoS attacks,
+then it enhances the quality of experience of the users of the targeted
+services or the entire home network. 2) If mitigation is being handled
+by the ISP rather then the home network, then it reduces 
 the management of DDoS attacks by the network administrator which 
-involves detection as well as mitigation. 3) It better preserves the home 
-network or SOHO privacy as it limits the information provided by the home network to the ISP. Distributing the DDoS detection into the CPE 
-enables the home network or SOHO to better detect attacks without 
-necessarily leaking to the ISP information of the network such as 
-services hosted, devices or host capacities for example. However, the 
+involves detection as well as mitigation as well as the provisioning
+of extra resources. 3) If the DDoS detection is based on information
+specific to the home network, such as for example the description of
+the services, the hosts capacities or the network topology, then 
+performing the DDoS detection by the home network instead of the ISP
+avoids the home network to leak private information to the ISP. In that
+sense, it better preserves the home 
+network or SOHO privacy while enabling a better detection. However, the 
 request for mitigation may still leak some informations. ISPs must 
 not retrieve sensitive data without the consent of the user. This is 
 usually captured in administrative contracts that are out of scope of 
