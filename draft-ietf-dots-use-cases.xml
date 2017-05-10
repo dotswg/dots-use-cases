@@ -17,8 +17,8 @@ docName="draft-ietf-dots-use-cases-05">
 
 <front>
 
-<title abbrev="DOTS Use cases">Use cases for DDoS Open Threat Signaling
-(DDoS) Open Threat Signaling</title>
+<title abbrev="DOTS Use cases">Use cases for Distributed Denial-of-Service
+Open Threat Signaling (DOTS)</title>
 
      <author fullname="Roland Dobbins" initials="R." surname="Dobbins"
 role="editor">
