@@ -13,7 +13,7 @@
 
 
 <rfc category="info" ipr="trust200902"
-docName="draft-ietf-dots-use-cases-05.txt">
+docName="draft-ietf-dots-use-cases-05">
 
 <front>
 
@@ -226,7 +226,7 @@ appliance as well as starting/ending a mitigation. </t>
 <section title="Inter-domain Use Cases" anchor="sec-upstream">
 
 <section title="Enterprise with an upstream transit provider DDoS
-mitigation Service">
+mitigation Service" anchor="sec-entreprise-upsteam">
 
 <!-- environment -->
 
