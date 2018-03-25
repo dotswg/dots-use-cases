@@ -20,7 +20,7 @@ Expires: September 28, 2017                                     Ericsson
 
 
                 Use cases for DDoS Open Threat Signaling
-                      draft-ietf-dots-use-cases-10
+                      draft-ietf-dots-use-cases-11
 
 Abstract
 

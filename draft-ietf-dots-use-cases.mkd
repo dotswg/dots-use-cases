@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-10
+docname: draft-ietf-dots-use-cases-11
 date: 2017-03-27
 
 area: Security
