@@ -188,7 +188,7 @@ another DDoS Mitigation System.
 Use Cases {#use-cases}
 ===================
 
-Upstream DDoS Mitigation between an Enterprise Network and  an Upstream Internet Transit Provider {#use-case-1}
+Upstream DDoS Mitigation between an Enterprise Network and an Upstream Internet Transit Provider {#use-case-1}
 ----------------------
 
 This use case describes how an enterprise network may take advantage of
@@ -226,7 +226,7 @@ overwhelm their transit link bandwidth.
         |      | DDoS   |  | <=================================
         |      | Target |  | <=================================
         |      +--------+  |        |  +------------+  |
-        |                  | +-------->| DDoS   |   |  |
+        |                  | +-------->| DDoS       |  |
         |                  | |      |S | Mitigation |  |
         |                  | |      |  | System     |  |
         |                  | |      |  +------------+  |
@@ -244,7 +244,7 @@ overwhelm their transit link bandwidth.
 
         Figure 1: Upstream Internet Transit Provider DDoS Mitigation
 
-The DMS is configured such that if the incoming Internet traffic volume
+The enterprise DMS is configured such that if the incoming Internet traffic volume
 exceeds 50% of the provisioned upstream Internet transit link capacity,
 the DMS will request DDoS mitigation assistance from the upstream
 transit provider.
@@ -269,7 +269,7 @@ statistics related to DDoS attack traffic mitigation, and related
 information.  Once the DDoS attack has ended, the DOTS Server signals
 the enterprise DMS DOTS Client that the attack has subsided.
 
-The enterprise DMS then requests the ITP to terminate the  DDoS
+The enterprise DMS then requests the ITP to terminate the DDoS
 Mitigation. The DOTS Server on the ITP receives this request and once
 the mitigation has ended, confirms the end of upstream DDoS Mitigation
 to the enterprise DMS DOTS Client.
@@ -332,7 +332,7 @@ ITP, as described in this section.
 
 
 
-DDoS Mitigation between an Enterprise Network and third party DDoS Mitigation Service rovider {#use-case-2}
+DDoS Mitigation between an Enterprise Network and third party DDoS Mitigation Service Provider {#use-case-2}
 ----------------------
 
 This use case differs from the previous use case in that the DDoS
@@ -346,7 +346,7 @@ data centers.
 We follow the terminology of section {{use-case-1}}, however the
 Enterprise Network is not limited to the network hosting the DDoS
 Target. In fact, it could also be a DDoS Mitigation Service Provider
-that has reached it resources capacities an delegate the DDoS Mitigation
+that has reached it resources capacities and delegate the DDoS Mitigation
 to other DDoS Mitigation Service Providers, thus forming an overlay of
 DMS.
 
@@ -394,7 +394,7 @@ Network. Redirection to the DDoS Mitigation Service Provider typically
 involves BGP prefix announcement eventually combined with DNS
 redirection, while re-injection may be performed via tunneling
 mechanisms such as GRE for example. Of course, such mechanisms needs to
-be regularly tested ad evaluated.  
+be regularly tested and evaluated.  
 
 
 
@@ -435,7 +435,7 @@ Mitigation Service Provider.
 Once the requesting Enterprise Network is confident that the DDoS attack
 has either ceased or has fallen to levels of traffic/complexity which
 they can handle on their own or that it has received a DOTS DDoS
-Mitigation request from a downstream Enterprise Network or DDoS
+Mitigation termination request from a downstream Enterprise Network or DDoS
 Mitigation Service Provider, the requesting Enterprise Network DOTS
 Client sends a DOTS DDoS Mitigation termination requests to the DDoS
 Mitigation Service Provider.
@@ -461,7 +461,7 @@ network, various hardware, or updating already instantiated DDoS
 mitigation functions.  In some cases, some specific virtual DDoS
 mitigation functions must be instantiated and properly ordered.
 Eventually, the coordination of the mitigation may involve external DDoS
-resources such as a transit provider or an DDoS Mitigation Service
+resources such as a transit provider or a DDoS Mitigation Service
 Provider.
 
 The communications used to trigger a DDoS Mitigation between the
