@@ -2,7 +2,7 @@
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
 docname: draft-ietf-dots-use-cases-11
-date: 2017-03-27
+
 
 area: Security
 wg: DOTS
@@ -38,9 +38,9 @@ author:
         ins: D. Migault
         name: Daniel Migault
         org: Ericsson
-        street: 8400 boulevard Decarie
-        city: Montreal, QC
-        code: H4P 2N2
+        street: 8275 Trans Canada Route
+        city: Saint Laurent, QC
+        code: 4S 0B6
         country: Canada
         email: daniel.migault@ericsson.com
       -
@@ -92,54 +92,41 @@ author:
         country: Japan
         email: kaname@nttv6.jp
 
-normative:
-  RFC2119:
-
-informative:
-  RFC6335:
-  RFC7368:
-  I-D.ietf-dots-requirements:
-  APACHE:
-    target: https://www.modsecurity.org
-    title: Apache mod_security
-  RRL:
-    target: https://deepthought.isc.org/article/AA-00994/0/Using-the-Response-Rate-Limiting-Feature-in-BIND-9.10.html
-    title: BIND RRL
-    date: 2014-08-06
 
 
 --- abstract
 
 The DDoS Open Threat Signaling (DOTS) effort is intended to provide a
-protocol to facilitate interoperability across disparate DDoS
-mitigation solutions and services.  This document presents use cases
-which describe the interactions expected between the DOTS components as
-well as DOTS messaging exchanges.  The purpose of describing use cases
-is to identify the interacting DOTS components, how they collaborate and
-what are the types of information to be exchanged.
+protocol to facilitate interoperability across disparate DDoS mitigation
+solutions and services.  This document presents use cases which describe
+the interactions expected between the DOTS components as well as DOTS
+messaging exchanges.  The purpose of describing use cases is to identify
+the interacting DOTS components, how they collaborate and what are the
+types of information to be exchanged.
 
 --- middle
 
 Introduction {#introduction}
 ============
 
-At the time of writing, distributed denial-of-service (DDoS) attack mitigation
-solutions are largely based upon siloed, proprietary communications
-schemes with vendor lock-in as a side-effect.  This can result in
-the configuration, provisioning, operation, and activation of these
-solutions being a highly manual and often time-consuming process.
+At the time of writing, distributed denial-of-service (DDoS) attack
+mitigation solutions are largely based upon siloed, proprietary
+communications schemes with vendor lock-in as a side-effect.  This can
+result in the configuration, provisioning, operation, and activation of
+these solutions being a highly manual and often time-consuming process.
 Additionally, coordination of multiple DDoS mitigation solutions
 simultaneously is fraught with both technical and process-related
-hurdles.  This greatly increases operational complexity which, in turn, can degrade the efficacy of mitigations.
+hurdles.  This greatly increases operational complexity which, in turn,
+can degrade the efficacy of mitigations.
 
 The DDoS Open Threat Signaling (DOTS) effort is intended to specify a
 protocol that facilitates interoperability between diverse DDoS
-mitigation solutions and ensures greater integration in term of mitigation
-requests and attack characterization patterns. As DDoS solutions are
-broadly heterogeneous among vendors, the primary goal of DOTS is to
-provide high-level interaction amongst differing DDoS solutions, such
-as initiating, terminating DDoS mitigation assistance or requesting the
-status of a DDoS mitigation.
+mitigation solutions and ensures greater integration in term of
+mitigation requests and attack characterization patterns. As DDoS
+solutions are broadly heterogeneous among vendors, the primary goal of
+DOTS is to provide high-level interaction amongst differing DDoS
+solutions, such as initiating, terminating DDoS mitigation assistance or
+requesting the status of a DDoS mitigation.
 
 This document provides use cases to provide inputs for the design of the
 DOTS protocol(s) as well as to illustrate the purpose of goals. The use
@@ -156,29 +143,29 @@ Requirements Terminology {#requirements-terminology}
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-document are to be interpreted as described in RFC 2119 [RFC2119].
+document are to be interpreted as described in {{!RFC2119}}.
 
 
 Acronyms {#acronyms}
 --------
 
 This document makes use of the same terminology and definitions as
-[I-D.ietf-dots-requirements]. In addition it uses the terms defined
+{{?I-D.ietf-dots-requirements}}. In addition it uses the terms defined
 below:
 
 * DDoS Mitigation Service Provider: designates the administrative entity
 providing the DDoS Mitigation Service.
 
 * DDoS Mitigation Service: designates a service provides to a customer.
-Services usually involves Service Level Agreement (SLA) that have to be met.
-It is the responsibility of the service provider to instantiate the DDoS
-Mitigation System to meet these SLA.
+Services usually involves Service Level Agreement (SLA) that have to be
+met.  It is the responsibility of the service provider to instantiate
+the DDoS Mitigation System to meet these SLA.
 
-* DDoS Mitigation System (DMS): A system that performs DDoS mitigation. The
-DDoS Mitigation System may be composed by a cluster of hardware and/or software
-resources, but could also involve an orchestrator that may take
-decisions such as outsourcing partial or more of the mitigation to
-another DDoS Mitigation System.
+* DDoS Mitigation System (DMS): A system that performs DDoS mitigation.
+The DDoS Mitigation System may be composed by a cluster of hardware
+and/or software resources, but could also involve an orchestrator that
+may take decisions such as outsourcing partial or more of the mitigation
+to another DDoS Mitigation System.
 
 * DDoS Mitigation: The action performed by the DDoS Mitigation System.  
 
@@ -201,11 +188,14 @@ network connectivity.  This eases both the configuration and the
 instantiation of a DDoS Mitigation Service. This section considers two
 kind of DDoS Mitigation Service between an enterprise network and an
 ITP:
+
 * The upstream ITP may instantiate a DDoS Mitigation System (DMS) upon
 receiving a request from the enterprise network. This typically
 corresponds to the case when the enterprise network is under attack.
 
-* On the other hand, the ITP may identify an enterprise network as the source of an attack and send a mitigation request for the enterprise to mitigate this at the source.
+* On the other hand, the ITP may identify an enterprise network as the
+source of an attack and send a mitigation request for the enterprise
+to mitigate this at the source.
 
 In the first scenario, as depicted in Figure 1, an enterprise network
 with self-hosted Internet-facing properties such as Web servers,
@@ -244,10 +234,10 @@ overwhelm their transit link bandwidth.
 
         Figure 1: Upstream Internet Transit Provider DDoS Mitigation
 
-The enterprise DMS is configured such that if the incoming Internet traffic volume
-exceeds 50% of the provisioned upstream Internet transit link capacity,
-the DMS will request DDoS mitigation assistance from the upstream
-transit provider.
+The enterprise DMS is configured such that if the incoming Internet
+traffic volume exceeds 50% of the provisioned upstream Internet transit
+link capacity, the DMS will request DDoS mitigation assistance from the
+upstream transit provider.
 
 The requests to trigger, manage, and finalize a DDoS Mitigation between
 the enterprise DMS and the ITP is performed using DOTS.  The enterprise
@@ -284,16 +274,17 @@ network organization which has deployed a DOTS-Client-capable DMS.
 
 * (c) The DMS determines that its capacity and/or capability to
 mitigate the DDoS attack is insufficient, and sends via its DOTS Client
-a DOTS DDoS Mitigation request to one or more DOTS Servers
-residing on the upstream ITP.
+a DOTS DDoS Mitigation request to one or more DOTS Servers residing on
+the upstream ITP.
 
 * (d) The DOTS Server which receive the DOTS Mitigation request
-determines that they have been configured to honor
-requests from the requesting DOTS Client, and honored its DDoS
-Mitigation by orchestrating its DMS.
+determines that they have been configured to honor requests from the
+requesting DOTS Client, and honored its DDoS Mitigation by orchestrating
+its DMS.
 
 * (e) While the DDoS Mitigation is active, the DOTS Servers
-regularly transmit DOTS DDoS Mitigation status updates to the DOTS Client.
+regularly transmit DOTS DDoS Mitigation status updates to the DOTS
+Client.
 
 * (f) The DOTS Client transmits a DOTS DDoS Mitigation termination
 request to the DOTS Server.
@@ -336,8 +327,8 @@ DDoS Mitigation between an Enterprise Network and third party DDoS Mitigation Se
 ----------------------
 
 This use case differs from the previous use case in that the DDoS
-Mitigation Service is not provided by an upstream ITP. In other words, as
-represented in figure 2, the traffic does not not go through the DDoS
+Mitigation Service is not provided by an upstream ITP. In other words,
+as represented in figure 2, the traffic does not not go through the DDoS
 Mitigation Service Provider by default. In order to steer the traffic to
 the DDoS Mitigation Service Provider, some network configuration are
 required.  As such it may be reserved for large enterprises or large
@@ -346,9 +337,9 @@ data centers.
 We follow the terminology of section {{use-case-1}}, however the
 Enterprise Network is not limited to the network hosting the DDoS
 Target. In fact, it could also be a DDoS Mitigation Service Provider
-that has reached it resources capacities and delegate the DDoS Mitigation
-to other DDoS Mitigation Service Providers, thus forming an overlay of
-DMS.
+that has reached it resources capacities and delegate the DDoS
+Mitigation to other DDoS Mitigation Service Providers, thus forming an
+overlay of DMS.
 
 
 
@@ -435,8 +426,8 @@ Mitigation Service Provider.
 Once the requesting Enterprise Network is confident that the DDoS attack
 has either ceased or has fallen to levels of traffic/complexity which
 they can handle on their own or that it has received a DOTS DDoS
-Mitigation termination request from a downstream Enterprise Network or DDoS
-Mitigation Service Provider, the requesting Enterprise Network DOTS
+Mitigation termination request from a downstream Enterprise Network or
+DDoS Mitigation Service Provider, the requesting Enterprise Network DOTS
 Client sends a DOTS DDoS Mitigation termination requests to the DDoS
 Mitigation Service Provider.
 

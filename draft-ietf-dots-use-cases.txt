@@ -5,7 +5,7 @@
 DOTS                                                          R. Dobbins
 Internet-Draft                                            Arbor Networks
 Intended status: Informational                                D. Migault
-Expires: September 28, 2017                                     Ericsson
+Expires: September 29, 2018                                     Ericsson
                                                                S. Fouant
 
                                                             R. Moskowitz
@@ -16,7 +16,7 @@ Expires: September 28, 2017                                     Ericsson
                                                                   Huawei
                                                             K. Nishizuka
                                                       NTT Communications
-                                                          March 27, 2017
+                                                          March 28, 2018
 
 
                 Use cases for DDoS Open Threat Signaling
@@ -25,7 +25,7 @@ Expires: September 28, 2017                                     Ericsson
 Abstract
 
    The DDoS Open Threat Signaling (DOTS) effort is intended to provide a
-   protocol to facilitate interoperability between multivendor DDoS
+   protocol to facilitate interoperability across disparate DDoS
    mitigation solutions and services.  This document presents use cases
    which describe the interactions expected between the DOTS components
    as well as DOTS messaging exchanges.  The purpose of describing use
@@ -47,20 +47,20 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 28, 2017.
+   This Internet-Draft will expire on September 29, 2018.
 
 
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 1]
+Dobbins, et al.        Expires September 29, 2018               [Page 1]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
 Copyright Notice
 
-   Copyright (c) 2017 IETF Trust and the persons identified as the
+   Copyright (c) 2018 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -81,9 +81,9 @@ Table of Contents
      2.2.  Acronyms  . . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  Use Cases . . . . . . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  Upstream DDoS Mitigation between an Enterprise Network
-           and  an Upstream Internet Transit Provider  . . . . . . .   4
+           and an Upstream Internet Transit Provider . . . . . . . .   4
      3.2.  DDoS Mitigation between an Enterprise Network and third
-           party DDoS Mitigation Service rovider . . . . . . . . . .   7
+           party DDoS Mitigation Service Provider  . . . . . . . . .   7
      3.3.  DDoS Orchestration  . . . . . . . . . . . . . . . . . . .   9
    4.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
@@ -95,38 +95,38 @@ Table of Contents
 
 1.  Introduction
 
-   Currently, distributed denial-of-service (DDoS) attack mitigation
-   solutions are largely based upon siloed, proprietary communications
-   schemes which result in vendor lock-in.  As a side-effect, this makes
-   the configuration, provisioning, operation, and activation of these
-   solutions a highly manual and often time-consuming process.
-   Additionally, coordination of multiple DDoS mitigation solutions
-   simultaneously is fraught with both technical and process- related
-   hurdles.  This greatly increases operational complexity and often
-   results in suboptimal DDoS attack mitigation efficacy.
+   At the time of writing, distributed denial-of-service (DDoS) attack
+   mitigation solutions are largely based upon siloed, proprietary
+   communications schemes with vendor lock-in as a side-effect.  This
+   can result in the configuration, provisioning, operation, and
+   activation of these solutions being a highly manual and often time-
+   consuming process.  Additionally, coordination of multiple DDoS
+   mitigation solutions simultaneously is fraught with both technical
+   and process-related hurdles.  This greatly increases operational
+   complexity which, in turn, can degrade the efficacy of mitigations.
 
 
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 2]
+Dobbins, et al.        Expires September 29, 2018               [Page 2]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    The DDoS Open Threat Signaling (DOTS) effort is intended to specify a
-   protocol that facilitates interoperability between multivendor DDoS
-   mitigation solutions and ensures more automation in term of
+   protocol that facilitates interoperability between diverse DDoS
+   mitigation solutions and ensures greater integration in term of
    mitigation requests and attack characterization patterns.  As DDoS
    solutions are broadly heterogeneous among vendors, the primary goal
-   of DOTS is to provide high-level interaction amongst differeing DDoS
+   of DOTS is to provide high-level interaction amongst differing DDoS
    solutions, such as initiating, terminating DDoS mitigation assistance
    or requesting the status of a DDoS mitigation.
 
    This document provides use cases to provide inputs for the design of
    the DOTS protocol(s) as well as to illustrate the purpose of goals.
-   The use cases are not limitative and future use cases are expected to
-   emerge as DOTS is being adopted and evolves.
+   The use cases are not exhaustive and future use cases are expected to
+   emerge as DOTS is adopted and evolves.
 
 2.  Terminology and Acronyms
 
@@ -134,7 +134,7 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-   document are to be interpreted as described in RFC 2119 [RFC2119].
+   document are to be interpreted as described in [RFC2119].
 
 2.2.  Acronyms
 
@@ -153,9 +153,10 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
    o  DDoS Mitigation System (DMS): A system that performs DDoS
       mitigation.  The DDoS Mitigation System may be composed by a
-      cluster of hardware resources, but could also involve an
-      orchestrator that may take decisions such as outsourcing partly or
-      not the DDoS Mitigation to another DDoS Mitigation System.
+      cluster of hardware and/or software resources, but could also
+      involve an orchestrator that may take decisions such as
+      outsourcing partial or more of the mitigation to another DDoS
+      Mitigation System.
 
    o  DDoS Mitigation: The action performed by the DDoS Mitigation
       System.
@@ -164,10 +165,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-
-Dobbins, et al.        Expires September 28, 2017               [Page 3]
+Dobbins, et al.        Expires September 29, 2018               [Page 3]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
 3.  Use Cases
@@ -184,20 +184,20 @@ Internet-Draft               DOTS Use Cases                   March 2017
    network connectivity.  This eases both the configuration and the
    instantiation of a DDoS Mitigation Service.  This section considers
    two kind of DDoS Mitigation Service between an enterprise network and
-   an ITP: * The upstream ITP may instantiate a DDoS Mitigation System
-   (DMS) upon receiving a request from the enterprise network.  This
-   typically corresponds to the case when the enterprise network is
-   under attack.
+   an ITP:
 
-   o  On the other hand, the ITP may also inform the enterprise network
-      is infected and taking part of a DDoS attack, in which case the
-      upstream ITP request the enterprise network a DDoS Mitigation to
-      the enterprise network and the enterprise network is expected to
-      proceed to the DDoS Mitigation.
+   o  The upstream ITP may instantiate a DDoS Mitigation System (DMS)
+      upon receiving a request from the enterprise network.  This
+      typically corresponds to the case when the enterprise network is
+      under attack.
+
+   o  On the other hand, the ITP may identify an enterprise network as
+      the source of an attack and send a mitigation request for the
+      enterprise to mitigate this at the source.
 
    In the first scenario, as depicted in Figure 1, an enterprise network
-   with self-hosted Internet- facing properties such as Web servers,
-   authoritative DNS servers, and VoIP PBXes has an DMS deployed to
+   with self-hosted Internet-facing properties such as Web servers,
+   authoritative DNS servers, and VoIP PBXes has a DMS deployed to
    protect those servers and applications from DDoS attacks.  In
    addition to their on-premise DDoS defense capability, they have
    contracted with their Internet transit provider for DDoS Mitigation
@@ -221,9 +221,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 4]
+Dobbins, et al.        Expires September 29, 2018               [Page 4]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
        +------------------+        +------------------+
@@ -234,7 +234,7 @@ Internet-Draft               DOTS Use Cases                   March 2017
        |      | DDoS   |  | <=================================
        |      | Target |  | <=================================
        |      +--------+  |        |  +------------+  |
-       |                  | +-------->| DDoS   |   |  |
+       |                  | +-------->| DDoS       |  |
        |                  | |      |S | Mitigation |  |
        |                  | |      |  | System     |  |
        |                  | |      |  +------------+  |
@@ -252,10 +252,10 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
        Figure 1: Upstream Internet Transit Provider DDoS Mitigation
 
-   The DMS is configured such that if the incoming Internet traffic
-   volume exceeds 50% of the provisioned upstream Internet transit link
-   capacity, the DMS will request DDoS mitigation assistance from the
-   upstream transit provider.
+   The enterprise DMS is configured such that if the incoming Internet
+   traffic volume exceeds 50% of the provisioned upstream Internet
+   transit link capacity, the DMS will request DDoS mitigation
+   assistance from the upstream transit provider.
 
    The requests to trigger, manage, and finalize a DDoS Mitigation
    between the enterprise DMS and the ITP is performed using DOTS.  The
@@ -277,9 +277,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 5]
+Dobbins, et al.        Expires September 29, 2018               [Page 5]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    related information.  Once the DDoS attack has ended, the DOTS Server
@@ -333,9 +333,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 6]
+Dobbins, et al.        Expires September 29, 2018               [Page 6]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    Note also that when the enterprise is multihomed and connected to
@@ -356,20 +356,20 @@ Internet-Draft               DOTS Use Cases                   March 2017
    back to the upstream ITP, as described in this section.
 
 3.2.  DDoS Mitigation between an Enterprise Network and third party DDoS
-      Mitigation Service rovider
+      Mitigation Service Provider
 
    This use case differs from the previous use case in that the DDoS
    Mitigation Service is not provided by an upstream ITP.  In other
-   word, as represented in figure 2, the traffic does not not go through
-   the DDoS Mitigation Service Provider by default.  In order to steer
-   the traffic to the DDoS Mitigation Service Provider, some network
-   configuration are required.  As such it may be reserved for large
-   enterprises or large data centers.
+   words, as represented in figure 2, the traffic does not not go
+   through the DDoS Mitigation Service Provider by default.  In order to
+   steer the traffic to the DDoS Mitigation Service Provider, some
+   network configuration are required.  As such it may be reserved for
+   large enterprises or large data centers.
 
    We follow the terminology of section Section 3.1, however the
    Enterprise Network is not limited to the network hosting the DDoS
    Target.  In fact, it could also be a DDoS Mitigation Service Provider
-   that has reached it resources capacities an delegate the DDoS
+   that has reached it resources capacities and delegate the DDoS
    Mitigation to other DDoS Mitigation Service Providers, thus forming
    an overlay of DMS.
 
@@ -389,9 +389,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 7]
+Dobbins, et al.        Expires September 29, 2018               [Page 7]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
       +------------------+        +------------------+
@@ -435,7 +435,7 @@ Internet-Draft               DOTS Use Cases                   March 2017
    Mitigation Service Provider typically involves BGP prefix
    announcement eventually combined with DNS redirection, while re-
    injection may be performed via tunneling mechanisms such as GRE for
-   example.  Of course, such mechanisms needs to be regularly tested ad
+   example.  Of course, such mechanisms needs to be regularly tested and
    evaluated.
 
 
@@ -445,9 +445,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 8]
+Dobbins, et al.        Expires September 29, 2018               [Page 8]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
      +------------------+        +------------------+
@@ -487,25 +487,26 @@ Internet-Draft               DOTS Use Cases                   March 2017
    Once the requesting Enterprise Network is confident that the DDoS
    attack has either ceased or has fallen to levels of traffic/
    complexity which they can handle on their own or that it has received
-   a DOTS DDoS Mitigation request from a downstream Enterprise Network
-   or DDoS Mitigation Service Provider, the requesting Enterprise
-   Network DOTS Client sends a DOTS DDoS Mitigation termination requests
-   to the DDoS Mitigation Service Provider.
+   a DOTS DDoS Mitigation termination request from a downstream
+   Enterprise Network or DDoS Mitigation Service Provider, the
+   requesting Enterprise Network DOTS Client sends a DOTS DDoS
+   Mitigation termination requests to the DDoS Mitigation Service
+   Provider.
 
 3.3.  DDoS Orchestration
 
    In this use case, one or more DDoS telemetry systems or monitoring
    devices such as a flow telemetry collector monitor a network -
    typically an ISP network.  Upon detection of a DDoS attack, these
-   telemetry systems alert an orchestrator in charge of coordinating the
 
 
 
-Dobbins, et al.        Expires September 28, 2017               [Page 9]
+Dobbins, et al.        Expires September 29, 2018               [Page 9]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
+   telemetry systems alert an orchestrator in charge of coordinating the
    various DMS within the domain.  The telemetry systems may be
    configured to provide necessary and useful pieces of information,
    such as a preliminary analysis of the observation to the
@@ -520,7 +521,7 @@ Internet-Draft               DOTS Use Cases                   March 2017
    instantiated DDoS mitigation functions.  In some cases, some specific
    virtual DDoS mitigation functions must be instantiated and properly
    ordered.  Eventually, the coordination of the mitigation may involve
-   external DDoS resources such as a transit provider or an DDoS
+   external DDoS resources such as a transit provider or a DDoS
    Mitigation Service Provider.
 
    The communications used to trigger a DDoS Mitigation between the
@@ -556,10 +557,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-
-Dobbins, et al.        Expires September 28, 2017              [Page 10]
+Dobbins, et al.        Expires September 29, 2018              [Page 10]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
           +----------+
@@ -613,9 +613,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017              [Page 11]
+Dobbins, et al.        Expires September 29, 2018              [Page 11]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    Upon receiving the DOTS request for DDoS mitigation from the network
@@ -669,9 +669,9 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017              [Page 12]
+Dobbins, et al.        Expires September 29, 2018              [Page 12]
 
-Internet-Draft               DOTS Use Cases                   March 2017
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -681,30 +681,11 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 7.2.  Informative References
 
-   [APACHE]   "Apache mod_security", n.d.,
-              <https://www.modsecurity.org>.
-
    [I-D.ietf-dots-requirements]
               Mortensen, A., Moskowitz, R., and T. Reddy, "Distributed
               Denial of Service (DDoS) Open Threat Signaling
               Requirements", draft-ietf-dots-requirements-14 (work in
               progress), February 2018.
-
-   [RFC6335]  Cotton, M., Eggert, L., Touch, J., Westerlund, M., and S.
-              Cheshire, "Internet Assigned Numbers Authority (IANA)
-              Procedures for the Management of the Service Name and
-              Transport Protocol Port Number Registry", BCP 165,
-              RFC 6335, DOI 10.17487/RFC6335, August 2011,
-              <https://www.rfc-editor.org/info/rfc6335>.
-
-   [RFC7368]  Chown, T., Ed., Arkko, J., Brandt, A., Troan, O., and J.
-              Weil, "IPv6 Home Networking Architecture Principles",
-              RFC 7368, DOI 10.17487/RFC7368, October 2014,
-              <https://www.rfc-editor.org/info/rfc7368>.
-
-   [RRL]      "BIND RRL", August 2014,
-              <https://deepthought.isc.org/article/AA-00994/0/Using-the-
-              Response-Rate-Limiting-Feature-in-BIND-9.10.html>.
 
 Authors' Addresses
 
@@ -717,17 +698,11 @@ Authors' Addresses
 
    Daniel Migault
    Ericsson
-   8400 boulevard Decarie
-   Montreal, QC  H4P 2N2
+   8275 Trans Canada Route
+   Saint Laurent, QC  4S 0B6
    Canada
 
    EMail: daniel.migault@ericsson.com
-
-
-
-Dobbins, et al.        Expires September 28, 2017              [Page 13]
-
-Internet-Draft               DOTS Use Cases                   March 2017
 
 
    Stefan Fouant
@@ -742,6 +717,17 @@ Internet-Draft               DOTS Use Cases                   March 2017
    USA
 
    EMail: rgm@labs.htt-consult.com
+
+
+
+
+
+
+
+
+Dobbins, et al.        Expires September 29, 2018              [Page 13]
+
+Internet-Draft               DOTS Use Cases                   March 2018
 
 
    Nik Teague
@@ -781,4 +767,18 @@ Internet-Draft               DOTS Use Cases                   March 2017
 
 
 
-Dobbins, et al.        Expires September 28, 2017              [Page 14]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dobbins, et al.        Expires September 29, 2018              [Page 14]
