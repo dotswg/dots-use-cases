@@ -394,7 +394,7 @@ Network. Redirection to the DDoS Mitigation Service Provider typically
 involves BGP prefix announcement eventually combined with DNS
 redirection, while re-injection may be performed via tunneling
 mechanisms such as GRE for example. Of course, such mechanisms needs to
-be regularly tested and evaluated.  
+be regularly tested and evaluated. 
 
 
 
