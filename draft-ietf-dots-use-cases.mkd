@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-12
+docname: draft-ietf-dots-use-cases-13
 
 
 area: Security
@@ -305,19 +305,6 @@ enterprise network may require to coordinate the various DDoS Mitigation
 Services associated to each link. More multi-homing considerations are
 discussed in {{?I-D.boucadair-dots-multihoming}}.
 
-The current scenario describes the case where the DDoS Target is in the
-enterprise network while the secondary DMS is provided by the upstream
-ITP. An alternate use case may consider the scenario where the ITP informs
-the enterprise network it is involved into an ongoing attack or that
-infected machines have been identified. In this case the DOTS client and
-DOTS server roles are inverted. The DOTS client is located in the ITP
-network and the DOTS server is hosted in the enterprise network. The
-enterprise network is then responsible to perform the DDoS Mitigation.
-In some case the DDoS Mitigation may be delegated back to the upstream
-ITP, as described in this section.
-
-
-
 DDoS Mitigation by a Third party DDoS Mitigation Service Provider {#use-case-2}
 ----------------------
 
@@ -456,20 +443,22 @@ not part of DOTS.  Similarly, the discovery of available DDoS mitigation
 functions is not part of DOTS; and as such is out of scope.
 
 
-           +----------+
-           | network  |C
+           +----------+              
+           | network  |C            (Enterprise Network)
            | adminis  |<-+
            | trator   |  |
            +----------+  |
-                         |                       (internal)
+                         |                       
            +----------+  | S+--------------+     +-----------+
            |telemetry/|  +->|              |C   S| DDoS      |+
            |monitoring|<--->| Orchestrator |<--->| mitigation||
            |systems   |C   S|              |<-+  | systems   ||
            +----------+     +--------------+C |  +-----------+|
                                               |    +----------+
+           -----------------------------------|-----------------
                                               |
-                                              |  (external)
+                                              |
+              (Internet Transit Provider)     |  
                                               |  +-----------+
                                               | S| DDoS      |
                                               +->| mitigation|
