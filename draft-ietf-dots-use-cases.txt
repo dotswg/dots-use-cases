@@ -5,7 +5,7 @@
 DOTS                                                          R. Dobbins
 Internet-Draft                                            Arbor Networks
 Intended status: Informational                                D. Migault
-Expires: December 29, 2018                                      Ericsson
+Expires: January 5, 2019                                        Ericsson
                                                                S. Fouant
 
                                                             R. Moskowitz
@@ -16,7 +16,7 @@ Expires: December 29, 2018                                      Ericsson
                                                                   Huawei
                                                             K. Nishizuka
                                                       NTT Communications
-                                                           June 27, 2018
+                                                           July 04, 2018
 
 
                 Use cases for DDoS Open Threat Signaling
@@ -47,15 +47,15 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 29, 2018.
+   This Internet-Draft will expire on January 5, 2019.
 
 
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 1]
+Dobbins, et al.          Expires January 5, 2019                [Page 1]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 2]
+Dobbins, et al.          Expires January 5, 2019                [Page 2]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    of DOTS is to provide high-level interaction amongst differing DDoS
@@ -165,16 +165,16 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 3]
+Dobbins, et al.          Expires January 5, 2019                [Page 3]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
-   residential network.  As the ITP provides connectivity to the
-   enterprise network, it is already on the path of the inbound or
-   outbound traffic of the enterprise network and well aware of the
-   networking parameters associated to the enterprise network
-   connectivity.  This eases both the configuration and the
+   residential network and cloud hosting network.  As the ITP provides
+   connectivity to the enterprise network, it is already on the path of
+   the inbound or outbound traffic of the enterprise network and well
+   aware of the networking parameters associated to the enterprise
+   network connectivity.  This eases both the configuration and the
    instantiation of a DDoS Mitigation Service.  This section considers
    two kind of DDoS Mitigation Service between an enterprise network and
    an ITP:
@@ -221,13 +221,13 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 4]
+Dobbins, et al.          Expires January 5, 2019                [Page 4]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
        +------------------+        +------------------+
-       | Entreprise       |        | Upstream         |
+       | Enterprise       |        | Upstream         |
        | Network          |        | Internet Transit |
        |                  |        | Provider         |
        |      +--------+  |        |             DDoS Attack
@@ -277,9 +277,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 5]
+Dobbins, et al.          Expires January 5, 2019                [Page 5]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    Over the course of the attack, the DOTS server of the ITP
@@ -333,9 +333,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 6]
+Dobbins, et al.          Expires January 5, 2019                [Page 6]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    request to the upstream ITP, in which case the request may be sent
@@ -389,13 +389,13 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 7]
+Dobbins, et al.          Expires January 5, 2019                [Page 7]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
       +------------------+        +------------------+
-      | Entreprise       |        | Upstream         |
+      | Enterprise       |        | Upstream         |
       | Network          |        | Internet Transit |
       |                  |        | Provider         |
       |      +--------+  |        |             DDoS Attack
@@ -445,13 +445,13 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 8]
+Dobbins, et al.          Expires January 5, 2019                [Page 8]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
      +------------------+        +------------------+
-     | Entreprise       |        | Upstream         |
+     | Enterprise       |        | Upstream         |
      | Network          |        | Internet Transit |
      |                  |        | Provider         |
      |      +--------+  |        |             DDoS Attack
@@ -501,9 +501,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018               [Page 9]
+Dobbins, et al.          Expires January 5, 2019                [Page 9]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    The orchestrator analyses the various information it receives from
@@ -557,9 +557,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018              [Page 10]
+Dobbins, et al.          Expires January 5, 2019               [Page 10]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
           +----------+
@@ -613,9 +613,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018              [Page 11]
+Dobbins, et al.          Expires January 5, 2019               [Page 11]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    mitigation, the network administrator triggers the DDoS mitigation
@@ -669,9 +669,9 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018              [Page 12]
+Dobbins, et al.          Expires January 5, 2019               [Page 12]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
 7.  Informative References
@@ -725,9 +725,9 @@ Authors' Addresses
 
 
 
-Dobbins, et al.         Expires December 29, 2018              [Page 13]
+Dobbins, et al.          Expires January 5, 2019               [Page 13]
 
-Internet-Draft               DOTS Use Cases                    June 2018
+Internet-Draft               DOTS Use Cases                    July 2018
 
 
    Nik Teague
@@ -781,4 +781,4 @@ Internet-Draft               DOTS Use Cases                    June 2018
 
 
 
-Dobbins, et al.         Expires December 29, 2018              [Page 14]
+Dobbins, et al.          Expires January 5, 2019               [Page 14]

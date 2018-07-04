@@ -173,14 +173,14 @@ network may take advantage of a pre-existing relation with its Internet
 Transit Provider (ITP) in order to mitigate a DDoS attack targeting its
 network. To improve the clarity of our purpose, the targeted network
 will be designated as enterprise network, but the same scenario applies
-to any downstream network, including residential network. As the ITP
-provides connectivity to the enterprise network, it is already on the
-path of the inbound or outbound traffic of the enterprise network and
-well aware of the networking parameters associated to the enterprise
-network connectivity.  This eases both the configuration and the
-instantiation of a DDoS Mitigation Service. This section considers two
-kind of DDoS Mitigation Service between an enterprise network and an
-ITP:
+to any downstream network, including residential network and cloud
+hosting network. As the ITP provides connectivity to the enterprise
+network, it is already on the path of the inbound or outbound traffic of
+the enterprise network and well aware of the networking parameters
+associated to the enterprise network connectivity.  This eases both the
+configuration and the instantiation of a DDoS Mitigation Service. This
+section considers two kind of DDoS Mitigation Service between an
+enterprise network and an ITP:
 
 * The upstream ITP may instantiate a DDoS Mitigation System (DMS) upon
 receiving a request from the enterprise network. This typically
@@ -200,7 +200,7 @@ threaten to overwhelm their WAN link(s) bandwidth.
 
 
         +------------------+        +------------------+
-        | Entreprise       |        | Upstream         |
+        | Enterprise       |        | Upstream         |
         | Network          |        | Internet Transit |
         |                  |        | Provider         |
         |      +--------+  |        |             DDoS Attack
@@ -322,7 +322,7 @@ resources capacities, it may chose to delegate the DDoS Mitigation to
 another DDoS Mitigation Service Provider. 
 
        +------------------+        +------------------+
-       | Entreprise       |        | Upstream         |
+       | Enterprise       |        | Upstream         |
        | Network          |        | Internet Transit |
        |                  |        | Provider         |
        |      +--------+  |        |             DDoS Attack
@@ -366,7 +366,7 @@ tunneling mechanisms such as GRE for example.  These exact mechanisms
 used for traffic steering are out of scope. 
 
       +------------------+        +------------------+
-      | Entreprise       |        | Upstream         |
+      | Enterprise       |        | Upstream         |
       | Network          |        | Internet Transit |
       |                  |        | Provider         |
       |      +--------+  |        |             DDoS Attack
