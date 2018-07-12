@@ -149,7 +149,7 @@ and/or software resources, but could also involve an orchestrator that
 may take decisions such as outsourcing partial or more of the mitigation
 to another DDoS Mitigation System.
 
-* DDoS Mitigation Service: designates a DDoS service provided to a
+* DDoS Mitigation Service: designates a DDoS mitigation service provided to a
 customer and which is scoped to mitigate DDoS attacks.
 Services usually involve Service Level Agreement (SLA) that have to be
 met.  It is the responsibility of the service provider to instantiate
@@ -195,7 +195,7 @@ with self-hosted Internet-facing properties such as Web servers,
 authoritative DNS servers, and VoIP servers has a DMS deployed to
 protect those servers and applications from DDoS attacks. In addition to
 on-premise DDoS defense capability, enterprises have contracted with
-their Internet transit provider for DDoS Mitigation Services which
+their ITP for DDoS Mitigation Services which
 threaten to overwhelm their WAN link(s) bandwidth.
 
 
@@ -249,8 +249,9 @@ on the ITP network by the ITP DMS.
 Over the course of the attack, the DOTS server of the ITP periodically
 informs the DOTS client on the enterprise DMS mitigation status,
 statistics related to DDoS attack traffic mitigation, and related
-information.  Once the DDoS attack has ended, the DOTS server signals
-the enterprise DMS DOTS client that the attack has subsided.
+information.  Once the DDoS attack has ended, or decreased to the
+certain level that the DOTS client can handle by itself, the DOTS server
+signals the enterprise DMS DOTS client that the attack has subsided.
 
 The enterprise DMS then requests the ITP to terminate the DDoS
 Mitigation. The DOTS server on the ITP receives this request and once
@@ -264,36 +265,39 @@ use-case:
 network organization which has deployed a DOTS-capable DMS - typically a
 DOTS client.
 
-* (b) The DMS detects, classifies, and begins the DDoS Mitigation.
+* (b) The enterprise DMS detects, classifies, and begins the DDoS
+ Mitigation.
 
-* (c) The DMS determines that its capacity and/or capability to
-mitigate the DDoS attack is insufficient, and sends via its DOTS client
-a DOTS DDoS Mitigation request to one or more DOTS servers residing on
-the upstream ITP.
+* (c) The enterprise  DMS determines that its capacity and/or capability
+to mitigate the DDoS attack is insufficient, and sends via its DOTS
+client a DOTS DDoS Mitigation request to one or more DOTS servers
+residing on the upstream ITP.
 
-* (d) The DOTS server which receive the DOTS Mitigation request
-determines that they have been configured to honor requests from the
+* (d) The DOTS server which receives the DOTS Mitigation request
+determines that it has been configured to honor requests from the
 requesting DOTS client, and honored its DDoS Mitigation by orchestrating
 its DMS.
 
-* (e) While the DDoS Mitigation is active, DOTS servers
-regularly transmit DOTS DDoS Mitigation status updates to the DOTS
+* (e) While the DDoS Mitigation is active, DOTS server
+regularly transmits DOTS DDoS Mitigation status updates to the DOTS
 client.
 
-* (f) The DOTS client transmits a DOTS DDoS Mitigation termination
-request to the DOTS server.
+* (f) Informed by the DOTS server status update that the attack has
+ended or subsided, the DOTS client transmits a DOTS DDoS Mitigation
+termination request to the DOTS server.
 
-* (g) The DOTS server terminates DDoS Mitigation.
+* (g) The DOTS server terminates DDoS Mitigation, and sends the
+notification to the DOTS client.
 
 
 Note that communications between the enterprise DOTS client and the
-upstream transit provider DOTS Server may take place in-band within the
-main Internet WAN link between the enterprise and the ITP;
-out-of-band via a separate, dedicated wireline network link utilized
-solely for DOTS signaling; or out-of-band via some other form of network
-connectivity such as a third-party wireless 4G network connectivity.
+upstream ITP DOTS Server may take place in-band within the main Internet
+WAN link between the enterprise and the ITP; out-of-band via a separate,
+dedicated wireline network link utilized solely for DOTS signaling; or
+out-of-band via some other form of network connectivity such as a
+third-party wireless 4G network connectivity.
 
-Note also that a DOTS clients that sends a DOTS Mitigation request
+Note also that a DOTS client that sends a DOTS Mitigation request
 may be also triggered by a network admin that manually confirms the
 request to the upstream ITP, in which case the request may be sent from
 an application such as a web browser or a dedicated mobile application.
@@ -305,7 +309,7 @@ enterprise network may require to coordinate the various DDoS Mitigation
 Services associated to each link. More multi-homing considerations are
 discussed in {{?I-D.boucadair-dots-multihoming}}.
 
-DDoS Mitigation by a Third party DDoS Mitigation Service Provider {#use-case-2}
+DDoS Mitigation by a Third Party DDoS Mitigation Service Provider {#use-case-2}
 ----------------------
 
 This use case differs from the previous use case described in Section
@@ -316,8 +320,8 @@ order to steer the traffic to the DDoS Mitigation Service Provider, some
 network configuration changes are required.  As such, this use case
 likely to match large enterprises or large data centers, but not
 exclusively. Another typical scenario for this use case is the relation
-between DDoS Mitigation Service Provider forming an overlay of DMS. When
-an DDoS Mitigation Service Provider mitigating a DDoS attack reaches it
+between DDoS Mitigation Service Providers forming an overlay of DMS. When
+a DDoS Mitigation Service Provider mitigating a DDoS attack reaches it
 resources capacities, it may chose to delegate the DDoS Mitigation to
 another DDoS Mitigation Service Provider. 
 
@@ -346,8 +350,8 @@ another DDoS Mitigation Service Provider.
            * C is for DOTS client functionality
            * S is for DOTS server functionality
 
-       Figure 2: DDoS Mitigation between an Enterprise Network and third
-                 party DDoS Mitigation Service Provider
+       Figure 2: DDoS Mitigation between an Enterprise Network and Third
+                 Party DDoS Mitigation Service Provider
 
 In this scenario, an Enterprise Network has entered into a pre-arranged
 DDoS mitigation assistance agreement with one or more other DDoS
@@ -423,9 +427,9 @@ instantiated and properly ordered.  Eventually, the coordination of the
 mitigation may involve external DDoS resources such as a transit
 provider or a DDoS Mitigation Service Provider.
 
-The communications used to trigger a DDoS Mitigation between the
+The communication used to trigger a DDoS Mitigation between the
 telemetry and monitoring systems and the orchestrator is performed using
-DOTS. The telemetry systems implements a DOTS client while the
+DOTS. The telemetry system implements a DOTS client while the
 orchestrator implements a DOTS server.
 
 The communication between a network administrator and the orchestrator
@@ -467,7 +471,7 @@ functions is not part of DOTS; and as such is out of scope.
            * C is for DOTS client functionality
            * S is for DOTS server functionality
 
-   Figure 4: DDoS Orchestration
+             Figure 4: DDoS Orchestration
 
 
 

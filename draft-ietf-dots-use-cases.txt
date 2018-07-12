@@ -5,7 +5,7 @@
 DOTS                                                          R. Dobbins
 Internet-Draft                                            Arbor Networks
 Intended status: Informational                                D. Migault
-Expires: January 5, 2019                                        Ericsson
+Expires: January 12, 2019                                       Ericsson
                                                                S. Fouant
 
                                                             R. Moskowitz
@@ -16,7 +16,7 @@ Expires: January 5, 2019                                        Ericsson
                                                                   Huawei
                                                             K. Nishizuka
                                                       NTT Communications
-                                                           July 04, 2018
+                                                           July 11, 2018
 
 
                 Use cases for DDoS Open Threat Signaling
@@ -47,13 +47,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 5, 2019.
+   This Internet-Draft will expire on January 12, 2019.
 
 
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 1]
+Dobbins, et al.         Expires January 12, 2019                [Page 1]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -80,7 +80,7 @@ Table of Contents
    3.  Use Cases . . . . . . . . . . . . . . . . . . . . . . . . . .   3
      3.1.  Upstream DDoS Mitigation by an Upstream Internet Transit
            Provider  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     3.2.  DDoS Mitigation by a Third party DDoS Mitigation Service
+     3.2.  DDoS Mitigation by a Third Party DDoS Mitigation Service
            Provider  . . . . . . . . . . . . . . . . . . . . . . . .   7
      3.3.  DDoS Orchestration  . . . . . . . . . . . . . . . . . . .   9
    4.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 2]
+Dobbins, et al.         Expires January 12, 2019                [Page 2]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -138,11 +138,12 @@ Internet-Draft               DOTS Use Cases                    July 2018
       outsourcing partial or more of the mitigation to another DDoS
       Mitigation System.
 
-   o  DDoS Mitigation Service: designates a DDoS mitigation service provided to a
-      customer and which is scoped to mitigate DDoS attacks.  Services
-      usually involve Service Level Agreement (SLA) that have to be met.
-      It is the responsibility of the service provider to instantiate
-      the DDoS Mitigation System to meet these SLAs.
+   o  DDoS Mitigation Service: designates a DDoS mitigation service
+      provided to a customer and which is scoped to mitigate DDoS
+      attacks.  Services usually involve Service Level Agreement (SLA)
+      that have to be met.  It is the responsibility of the service
+      provider to instantiate the DDoS Mitigation System to meet these
+      SLAs.
 
    o  DDoS Mitigation: The action performed by the DDoS Mitigation
       System.
@@ -161,15 +162,15 @@ Internet-Draft               DOTS Use Cases                    July 2018
    Internet Transit Provider (ITP) in order to mitigate a DDoS attack
    targeting its network.  To improve the clarity of our purpose, the
    targeted network will be designated as enterprise network, but the
-   same scenario applies to any downstream network, including
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 3]
+Dobbins, et al.         Expires January 12, 2019                [Page 3]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
 
+   same scenario applies to any downstream network, including
    residential network and cloud hosting network.  As the ITP provides
    connectivity to the enterprise network, it is already on the path of
    the inbound or outbound traffic of the enterprise network and well
@@ -193,8 +194,8 @@ Internet-Draft               DOTS Use Cases                    July 2018
    authoritative DNS servers, and VoIP servers has a DMS deployed to
    protect those servers and applications from DDoS attacks.  In
    addition to on-premise DDoS defense capability, enterprises have
-   contracted with their ITP for DDoS Mitigation
-   Services which threaten to overwhelm their WAN link(s) bandwidth.
+   contracted with their ITP for DDoS Mitigation Services which threaten
+   to overwhelm their WAN link(s) bandwidth.
 
 
 
@@ -220,8 +221,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-
-Dobbins, et al.          Expires January 5, 2019                [Page 4]
+Dobbins, et al.         Expires January 12, 2019                [Page 4]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -277,7 +277,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 5]
+Dobbins, et al.         Expires January 12, 2019                [Page 5]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -285,8 +285,10 @@ Internet-Draft               DOTS Use Cases                    July 2018
    Over the course of the attack, the DOTS server of the ITP
    periodically informs the DOTS client on the enterprise DMS mitigation
    status, statistics related to DDoS attack traffic mitigation, and
-   related information.  Once the DDoS attack has ended, or decreased to the certain level that the DOTS client can handle by itself, the DOTS server
-   signals the enterprise DMS DOTS client that the attack has subsided.
+   related information.  Once the DDoS attack has ended, or decreased to
+   the certain level that the DOTS client can handle by itself, the DOTS
+   server signals the enterprise DMS DOTS client that the attack has
+   subsided.
 
    The enterprise DMS then requests the ITP to terminate the DDoS
    Mitigation.  The DOTS server on the ITP receives this request and
@@ -300,44 +302,47 @@ Internet-Draft               DOTS Use Cases                    July 2018
       organization which has deployed a DOTS-capable DMS - typically a
       DOTS client.
 
-   o  (b) The enterprise DMS detects, classifies, and begins the DDoS Mitigation.
+   o  (b) The enterprise DMS detects, classifies, and begins the DDoS
+      Mitigation.
 
-   o  (c) The enterprise DMS determines that its capacity and/or capability to
-      mitigate the DDoS attack is insufficient, and sends via its DOTS
-      client a DOTS DDoS Mitigation request to one or more DOTS servers
-      residing on the upstream ITP.
+   o  (c) The enterprise DMS determines that its capacity and/or
+      capability to mitigate the DDoS attack is insufficient, and sends
+      via its DOTS client a DOTS DDoS Mitigation request to one or more
+      DOTS servers residing on the upstream ITP.
 
    o  (d) The DOTS server which receives the DOTS Mitigation request
-      determines that it has been configured to honor requests from
-      the requesting DOTS client, and honored its DDoS Mitigation by
+      determines that it has been configured to honor requests from the
+      requesting DOTS client, and honored its DDoS Mitigation by
       orchestrating its DMS.
 
    o  (e) While the DDoS Mitigation is active, DOTS server regularly
       transmits DOTS DDoS Mitigation status updates to the DOTS client.
 
-   o  (f) Informed by the DOTS server status update that the attack has ended or subsided, The DOTS client transmits a DOTS DDoS Mitigation termination
-      request to the DOTS server.
+   o  (f) Informed by the DOTS server status update that the attack has
+      ended or subsided, the DOTS client transmits a DOTS DDoS
+      Mitigation termination request to the DOTS server.
 
-   o  (g) The DOTS server terminates DDoS Mitigation, and sends the notification to the DOTS client.
+   o  (g) The DOTS server terminates DDoS Mitigation, and sends the
+      notification to the DOTS client.
 
    Note that communications between the enterprise DOTS client and the
-   upstream ITP DOTS Server may take place in-band within
-   the main Internet WAN link between the enterprise and the ITP; out-
-   of-band via a separate, dedicated wireline network link utilized
-   solely for DOTS signaling; or out-of-band via some other form of
-   network connectivity such as a third-party wireless 4G network
-   connectivity.
-
-   Note also that a DOTS client that sends a DOTS Mitigation request
-   may be also triggered by a network admin that manually confirms the
+   upstream ITP DOTS Server may take place in-band within the main
+   Internet WAN link between the enterprise and the ITP; out-of-band via
+   a separate, dedicated wireline network link utilized solely for DOTS
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 6]
+
+Dobbins, et al.         Expires January 12, 2019                [Page 6]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
 
+   signaling; or out-of-band via some other form of network connectivity
+   such as a third-party wireless 4G network connectivity.
+
+   Note also that a DOTS client that sends a DOTS Mitigation request may
+   be also triggered by a network admin that manually confirms the
    request to the upstream ITP, in which case the request may be sent
    from an application such as a web browser or a dedicated mobile
    application.
@@ -384,12 +389,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-
-
-
-
-
-Dobbins, et al.          Expires January 5, 2019                [Page 7]
+Dobbins, et al.         Expires January 12, 2019                [Page 7]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -445,7 +445,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 8]
+Dobbins, et al.         Expires January 12, 2019                [Page 8]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -501,7 +501,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019                [Page 9]
+Dobbins, et al.         Expires January 12, 2019                [Page 9]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -519,7 +519,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
    The communication used to trigger a DDoS Mitigation between the
    telemetry and monitoring systems and the orchestrator is performed
-   using DOTS.  The telemetry systems implements a DOTS client while the
+   using DOTS.  The telemetry system implements a DOTS client while the
    orchestrator implements a DOTS server.
 
    The communication between a network administrator and the
@@ -529,7 +529,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
    The communication between the orchestrator and the DDoS mitigation
    systems is performed using DOTS.  The orchestrator implements a DOTS
-   Client while the DDoS mitigation system implements a DOTS Server.
+   Client while the DDoS mitigation systems implement a DOTS Server.
 
    The configuration aspects of each DDoS mitigation system, as well as
    the instantiations of DDoS mitigation functions or network
@@ -557,7 +557,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019               [Page 10]
+Dobbins, et al.         Expires January 12, 2019               [Page 10]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -586,7 +586,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
           * C is for DOTS client functionality
           * S is for DOTS server functionality
 
-                        Figure 4: DDoS Orchestration
+            Figure 4: DDoS Orchestration
 
    The telemetry systems monitor various network traffic and perform
    some measurement tasks.
@@ -613,7 +613,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019               [Page 11]
+Dobbins, et al.         Expires January 12, 2019               [Page 11]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -669,7 +669,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019               [Page 12]
+Dobbins, et al.         Expires January 12, 2019               [Page 12]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -725,7 +725,7 @@ Authors' Addresses
 
 
 
-Dobbins, et al.          Expires January 5, 2019               [Page 13]
+Dobbins, et al.         Expires January 12, 2019               [Page 13]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -781,4 +781,4 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.          Expires January 5, 2019               [Page 14]
+Dobbins, et al.         Expires January 12, 2019               [Page 14]
