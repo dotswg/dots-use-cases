@@ -5,7 +5,7 @@
 DOTS                                                          R. Dobbins
 Internet-Draft                                            Arbor Networks
 Intended status: Informational                                D. Migault
-Expires: January 12, 2019                                       Ericsson
+Expires: January 18, 2019                                       Ericsson
                                                                S. Fouant
 
                                                             R. Moskowitz
@@ -16,7 +16,7 @@ Expires: January 12, 2019                                       Ericsson
                                                                   Huawei
                                                             K. Nishizuka
                                                       NTT Communications
-                                                           July 11, 2018
+                                                           July 17, 2018
 
 
                 Use cases for DDoS Open Threat Signaling
@@ -47,13 +47,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 12, 2019.
+   This Internet-Draft will expire on January 18, 2019.
 
 
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 1]
+Dobbins, et al.         Expires January 18, 2019                [Page 1]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 2]
+Dobbins, et al.         Expires January 18, 2019                [Page 2]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -165,7 +165,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 3]
+Dobbins, et al.         Expires January 18, 2019                [Page 3]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -221,7 +221,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 4]
+Dobbins, et al.         Expires January 18, 2019                [Page 4]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -277,7 +277,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 5]
+Dobbins, et al.         Expires January 18, 2019                [Page 5]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -333,7 +333,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 6]
+Dobbins, et al.         Expires January 18, 2019                [Page 6]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -389,7 +389,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 7]
+Dobbins, et al.         Expires January 18, 2019                [Page 7]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -445,7 +445,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 8]
+Dobbins, et al.         Expires January 18, 2019                [Page 8]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -491,36 +491,36 @@ Internet-Draft               DOTS Use Cases                    July 2018
 3.3.  DDoS Orchestration
 
    In this use case, one or more DDoS telemetry systems or monitoring
-   devices monitor a network - typically an ISP network.  Upon detection
-   of a DDoS attack, these telemetry systems alert an orchestrator in
-   charge of coordinating the various DMS within the domain.  The
-   telemetry systems may be configured to provide required information,
-   such as a preliminary analysis of the observation to the
-   orchestrator.
+   devices monitor a network - typically an ISP network, an Enterprise
+   network, or a data center.  Upon detection of a DDoS attack, these
+   DDoS telemetry systems alert an orchestrator in charge of
+   coordinating the various DMS within the domain.  The DDoS telemetry
+   systems may be configured to provide required information, such as a
+   preliminary analysis of the observation to the orchestrator.
 
 
 
 
-Dobbins, et al.         Expires January 12, 2019                [Page 9]
+Dobbins, et al.         Expires January 18, 2019                [Page 9]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
 
    The orchestrator analyses the various information it receives from
-   specialized equipment, and elaborates one or multiple DDoS mitigation
-   strategies.  In some case, a manual confirmation may also be required
-   to choose a proposed strategy or to initiate a DDoS Mitigation.  The
-   DDoS Mitigation may consist of multiple steps such as configuring the
-   network, or updating already instantiated DDoS mitigation functions.
-   In some cases, some specific DDoS mitigation functions must be
-   instantiated and properly ordered.  Eventually, the coordination of
-   the mitigation may involve external DDoS resources such as a transit
-   provider or a DDoS Mitigation Service Provider.
+   DDoS telemetry system, and elaborates one or multiple DDoS mitigation
+   strategies.  In some case, a manual confirmation or selection may
+   also be required to choose a proposed strategy or to initiate a DDoS
+   Mitigation.  The DDoS Mitigation may consist of multiple steps such
+   as configuring the network, or updating already instantiated DDoS
+   mitigation functions.  In some cases, some specific DDoS mitigation
+   functions must be instantiated and properly ordered.  Eventually, the
+   coordination of the mitigation may involve external DDoS resources
+   such as a transit provider or a DDoS Mitigation Service Provider.
 
-   The communication used to trigger a DDoS Mitigation between the
+   The communication used to trigger a DDoS Mitigation between the DDoS
    telemetry and monitoring systems and the orchestrator is performed
-   using DOTS.  The telemetry system implements a DOTS client while the
-   orchestrator implements a DOTS server.
+   using DOTS.  The DDoS telemetry system implements a DOTS client while
+   the orchestrator implements a DOTS server.
 
    The communication between a network administrator and the
    orchestrator is also performed using DOTS.  The network administrator
@@ -557,7 +557,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019               [Page 10]
+Dobbins, et al.         Expires January 18, 2019               [Page 10]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -588,8 +588,8 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
             Figure 4: DDoS Orchestration
 
-   The telemetry systems monitor various network traffic and perform
-   some measurement tasks.
+   The DDoS telemetry systems monitor various network traffic and
+   perform some measurement tasks.
 
    These systems are configured so that when an event or some
    measurement indicators reach a predefined level to send DOTS
@@ -597,14 +597,14 @@ Internet-Draft               DOTS Use Cases                    July 2018
    may be associated with some optional mitigation hints to let the
    orchestrator know what has triggered the request.
 
-   Upon receipt of the DOTS mitigation request from the telemetry
+   Upon receipt of the DOTS mitigation request from the DDoS telemetry
    system, the orchestrator responds with an acknowledgment, to avoid
    retransmission of the request for mitigation.  The orchestrator may
    begin collecting additional fined grain and specific information from
-   various telemetry systems in order to correlate the measurements and
-   provide an analysis of the event.  Eventually, the orchestrator may
-   ask additional information to the telemetry system, however, the
-   collection of these information is out of scope.
+   various DDoS telemetry systems in order to correlate the measurements
+   and provide an analysis of the event.  Eventually, the orchestrator
+   may ask additional information to the DDoS telemetry system, however,
+   the collection of these information is out of scope.
 
    The orchestrator may be configured to start a DDoS Mitigation upon
    approval from a network administrator.  The analysis from the
@@ -613,7 +613,7 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019               [Page 11]
+Dobbins, et al.         Expires January 18, 2019               [Page 11]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -641,16 +641,18 @@ Internet-Draft               DOTS Use Cases                    July 2018
    whether the DDoS Mitigation is effective.
 
    When the DDoS attack has stopped, the orchestrator indicates to the
-   telemetry systems as well as to the network administrator the end of
-   the DDoS Mitigation.
+   DDoS telemetry systems as well as to the network administrator the
+   end of the DDoS Mitigation.
 
 4.  Security Considerations
+
+   The document does not describe any protocol.
 
    DOTS is at risk from three primary attacks: DOTS agent impersonation,
    traffic injection, and signaling blocking.
 
-   Impersonation and traffic injection mitigation can be managed through
-   current secure communications best practices.
+   Impersonation and traffic injection mitigation can be mitigated
+   through current secure communications best practices.
 
    Additional details of DOTS security requirements can be found in
    [I-D.ietf-dots-requirements].
@@ -663,16 +665,17 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
    The authors would like to thank among others Tirumaleswar Reddy;
    Andrew Mortensen; Mohamed Boucadaire; Artyom Gavrichenkov; Jon
-   Shallow and the DOTS WG chairs, Roman D.  Danyliw and Tobias Gondrom,
-   for their valuable feedback.
 
 
 
 
-Dobbins, et al.         Expires January 12, 2019               [Page 12]
+Dobbins, et al.         Expires January 18, 2019               [Page 12]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
+
+   Shallow and the DOTS WG chairs, Roman Danyliw and Tobias Gondrom, for
+   their valuable feedback.
 
 7.  Informative References
 
@@ -722,10 +725,7 @@ Authors' Addresses
 
 
 
-
-
-
-Dobbins, et al.         Expires January 12, 2019               [Page 13]
+Dobbins, et al.         Expires January 18, 2019               [Page 13]
 
 Internet-Draft               DOTS Use Cases                    July 2018
 
@@ -781,4 +781,4 @@ Internet-Draft               DOTS Use Cases                    July 2018
 
 
 
-Dobbins, et al.         Expires January 12, 2019               [Page 14]
+Dobbins, et al.         Expires January 18, 2019               [Page 14]
