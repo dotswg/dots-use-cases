@@ -122,8 +122,7 @@ can degrade the efficacy of mitigations.
 The DDoS Open Threat Signaling (DOTS) effort is intended to specify
 protocols that facilitate interoperability between diverse DDoS
 mitigation solutions and ensure greater integration in term of
-mitigation requests and attack characterization patterns - such as
-mitigation status/efficacy and other complimentary information. As DDoS
+mitigation requests and attack characterization patterns.  As DDoS
 solutions are broadly heterogeneous among vendors, the primary goal of
 DOTS is to provide high-level interaction amongst differing DDoS
 solutions, such as initiating, terminating DDoS mitigation assistance or
@@ -424,20 +423,13 @@ telemetry system, and initiates one or multiple DDoS mitigation
 strategies. For example, the orchestrator could select the DDoS
 mitigation system in the Enterprise network or one provided by the ITP.
 DDoS Mitigation System selection and DDoS Mitigation technique may
-depends on the type of DDoS attack. In some cases, the orchestrator may
-proceed to a coordination that could occurs at a finer granularity such
-as the service functions involved into the DDoS Mitigation. Such
-orchestration is especially targeting DDoS attacks that evolves into
-mutli-vector attacks and could typically be implemented in a Service
-Function Chaining (SFC) {{?RFC7665}} context.  In some case, a manual
-confirmation or selection may also be required to choose a proposed
-strategy or to initiate a DDoS Mitigation.  The DDoS Mitigation may
-consist of multiple steps such as configuring the network, or updating
-already instantiated DDoS mitigation functions.  In some SFC context,
-some specific  DDoS mitigation functions must be instantiated and
-properly ordered. Eventually, the coordination of the mitigation may
-involve external DDoS resources such as a transit provider or a DDoS
-Mitigation Service Provider.
+depends on the type of DDoS attack.  In some case, a manual confirmation
+or selection may also be required to choose a proposed strategy or to
+initiate a DDoS Mitigation.  The DDoS Mitigation may consist of multiple
+steps such as configuring the network, or updating already instantiated
+DDoS mitigation functions.  Eventually, the coordination of the
+mitigation may involve external DDoS resources such as a transit
+provider or a DDoS Mitigation Service Provider.
 
 The communication used to trigger a DDoS Mitigation between the DDoS
 telemetry and monitoring systems and the orchestrator is performed using
