@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-14
+docname: draft-ietf-dots-use-cases-15
 
 
 area: Security
@@ -122,7 +122,8 @@ can degrade the efficacy of mitigations.
 The DDoS Open Threat Signaling (DOTS) effort is intended to specify
 protocols that facilitate interoperability between diverse DDoS
 mitigation solutions and ensure greater integration in term of
-mitigation requests and attack characterization patterns. As DDoS
+mitigation requests and attack characterization patterns - such as
+mitigation status/efficacy and other complimentary information. As DDoS
 solutions are broadly heterogeneous among vendors, the primary goal of
 DOTS is to provide high-level interaction amongst differing DDoS
 solutions, such as initiating, terminating DDoS mitigation assistance or
@@ -140,6 +141,7 @@ This document makes use of the same terminology and definitions as
 {{?I-D.ietf-dots-requirements}}. In addition it uses the terms defined
 below:
 
+
 * DDoS Mitigation Service Provider: designates the administrative entity
 providing the DDoS Mitigation Service.
 
@@ -149,15 +151,15 @@ and/or software resources, but could also involve an orchestrator that
 may take decisions such as outsourcing partial or more of the mitigation
 to another DDoS Mitigation System.
 
+* DDoS Mitigation: The action performed by the DDoS Mitigation System.  
+
 * DDoS Mitigation Service: designates a DDoS mitigation service provided to a
 customer and which is scoped to mitigate DDoS attacks.
 Services usually involve Service Level Agreement (SLA) that have to be
-met.  It is the responsibility of the service provider to instantiate
+met.  It is the responsibility of the DDoS Service provider to instantiate
 the DDoS Mitigation System to meet these SLAs.
 
-* DDoS Mitigation: The action performed by the DDoS Mitigation System.  
-
-* Internet Transit Provider (ITP): designates the entity that delivers
+ * Internet Transit Provider (ITP): designates the entity that delivers
 the traffic to the network. It can be an Internet Service Provider
 (ISP), or an upstream entity delivering the traffic to the ISP.  
 
@@ -411,25 +413,34 @@ DDoS Orchestration {#use-case-3}
 
 In this use case, one or more DDoS telemetry systems or monitoring
 devices monitor a network - typically an ISP network, an Enterprise
-network, or a data center. Upon detection of a DDoS attack, these
-DDoS telemetry systems alert an orchestrator in charge of coordinating the
-various DMS within the domain. The DDoS telemetry systems may be configured
-to provide required information, such as a preliminary analysis of the
-observation to the orchestrator.
+network, or a data center. Upon detection of a DDoS attack, these DDoS
+telemetry systems alert an orchestrator in charge of coordinating the
+various DMS within the domain. The DDoS telemetry systems may be
+configured to provide required information, such as a preliminary
+analysis of the observation to the orchestrator.
 
 The orchestrator analyses the various information it receives from DDoS
-telemetry system, and elaborates one or multiple DDoS mitigation
-strategies.  In some case, a manual confirmation or selection may also
-be required to choose a proposed strategy or to initiate a DDoS
-Mitigation.  The DDoS Mitigation may consist of multiple steps such as
-configuring the network, or updating already instantiated DDoS
-mitigation functions.  In some cases, some specific  DDoS mitigation
-functions must be instantiated and properly ordered.  Eventually, the
-coordination of the mitigation may involve external DDoS resources such
-as a transit provider or a DDoS Mitigation Service Provider.
+telemetry system, and initiates one or multiple DDoS mitigation
+strategies. For example, the orchestrator could select the DDoS
+mitigation system in the Enterprise network or one provided by the ITP.
+DDoS Mitigation System selection and DDoS Mitigation technique may
+depends on the type of DDoS attack. In some cases, the orchestrator may
+proceed to a coordination that could occurs at a finer granularity such
+as the service functions involved into the DDoS Mitigation. Such
+orchestration is especially targeting DDoS attacks that evolves into
+mutli-vector attacks and could typically be implemented in a Service
+Function Chaining (SFC) {{?RFC7665}} context.  In some case, a manual
+confirmation or selection may also be required to choose a proposed
+strategy or to initiate a DDoS Mitigation.  The DDoS Mitigation may
+consist of multiple steps such as configuring the network, or updating
+already instantiated DDoS mitigation functions.  In some SFC context,
+some specific  DDoS mitigation functions must be instantiated and
+properly ordered. Eventually, the coordination of the mitigation may
+involve external DDoS resources such as a transit provider or a DDoS
+Mitigation Service Provider.
 
-The communication used to trigger a DDoS Mitigation between the
-DDoS telemetry and monitoring systems and the orchestrator is performed using
+The communication used to trigger a DDoS Mitigation between the DDoS
+telemetry and monitoring systems and the orchestrator is performed using
 DOTS. The DDoS telemetry system implements a DOTS client while the
 orchestrator implements a DOTS server.
 
@@ -499,7 +510,8 @@ approval from a network administrator.  The analysis from the
 orchestrator is reported to the network administrator via a web
 interface.  If the network administrator decides to start the
 mitigation, the network administrator triggers the DDoS mitigation
-request using the web interface of a DOTS client.  This request is
+request using the web interface of a DOTS client connected to the
+orchestrator. This request is
 expected to be associated with a context that provides sufficient
 information to the orchestrator to infer the DDoS Mitigation to
 elaborate and coordinate.
