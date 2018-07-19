@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-15
+docname: draft-ietf-dots-use-cases-16
 
 
 area: Security
@@ -424,12 +424,12 @@ strategies. For example, the orchestrator could select the DDoS
 mitigation system in the Enterprise network or one provided by the ITP.
 DDoS Mitigation System selection and DDoS Mitigation technique may
 depends on the type of DDoS attack.  In some case, a manual confirmation
-or selection may also be required to choose a proposed strategy or to
+or selection may also be required to choose a proposed strategy to
 initiate a DDoS Mitigation.  The DDoS Mitigation may consist of multiple
 steps such as configuring the network, or updating already instantiated
 DDoS mitigation functions.  Eventually, the coordination of the
-mitigation may involve external DDoS resources such as a transit
-provider or a DDoS Mitigation Service Provider.
+mitigation may involve external DDoS mitigation resources such as a
+transit provider or a Third Party DDoS Mitigation Service Provider.
 
 The communication used to trigger a DDoS Mitigation between the DDoS
 telemetry and monitoring systems and the orchestrator is performed using
