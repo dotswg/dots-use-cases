@@ -307,7 +307,7 @@ notification to the DOTS client.
 
 
 Note that communications between the enterprise DOTS client and the
-upstream ITP DOTS Server may take place in-band within the main Internet
+upstream ITP DOTS server may take place in-band within the main Internet
 WAN link between the enterprise and the ITP; out-of-band via a separate,
 dedicated wireline network link utilized solely for DOTS signaling; or
 out-of-band via some other form of network connectivity such as a
@@ -467,7 +467,7 @@ DOTS server.
 
 The communication between the orchestrator and the DDoS Mitigation
 Systems is performed using DOTS. The orchestrator implements a DOTS
-Client while the DDoS Mitigation Systems implement a DOTS Server.
+client while the DDoS Mitigation Systems implement a DOTS server.
 
 The configuration aspects of each DDoS Mitigation System, as well as the
 instantiations of DDoS mitigation functions or network configuration is
