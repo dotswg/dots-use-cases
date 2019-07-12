@@ -462,8 +462,8 @@ orchestrator implements a DOTS server.
 
 The communication between a network administrator and the orchestrator
 is also performed using DOTS. The network administrator uses a web
-interface which interacts with a DOTS client, while the orchestrator implements a
-DOTS server.
+interface which interacts with a DOTS client, while the orchestrator
+implements a DOTS server.
 
 The communication between the orchestrator and the DDoS Mitigation
 Systems is performed using DOTS. The orchestrator implements a DOTS
@@ -524,12 +524,12 @@ system; however, the collection of this information is out of scope.
 The orchestrator may be configured to start a DDoS Mitigation upon
 approval from a network administrator. The analysis from the
 orchestrator is reported to the network administrator via a web
-interface. If the network administrator decides to start the
-mitigation, the network administrator triggers the DDoS mitigation
-request using the web interface of a DOTS client connected to the
-orchestrator DOTS server. This request is expected to be associated with
-a context that provides sufficient information to the orchestrator DOTS
-server to infer the DDoS Mitigation to elaborate and coordinate.
+interface. If the network administrator decides to start the mitigation,
+the network administrator triggers the DDoS mitigation request using the
+web interface of a DOTS client communicating to the orchestrator DOTS
+server. This request is expected to be associated with a context that
+provides sufficient information to the orchestrator DOTS server to infer
+the DDoS Mitigation to elaborate and coordinate.
 
 Upon receiving a request to mitigate a DDoS attack performed over a
 target, the orchestrator may evaluate the volumetry of the attack as
