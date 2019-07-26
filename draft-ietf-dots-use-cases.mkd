@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-18
+docname: draft-ietf-dots-use-cases-19
 
 
 area: Security
@@ -551,6 +551,16 @@ client are being notified and the orchestrator's DOTS servers indicate
 to the DDoS telemetry systems as well as to the network administrator
 the end of the DDoS Mitigation.
 
+In addition to the above DDoS Orchestration, the selected DDoS
+mitigation systems can return back a mitigation request to the
+orchestrator as an offloading.  When the DDoS attack becomes severe and
+the DDoS mitigation system's utilization rate reaches its maximum
+capacity, the DDoS mitigation system can send mitigation requests with
+additional hints such as its blocked traffic information to the
+orchestrator.  Then the orchestrator can take further actions like
+requesting forwarding nodes such as routers to filter the traffic.  In
+this case, the DDoS mitigation system implements a DOTS client while the
+orchestrator implements a DOTS server.
 
 Security Considerations {#security-considerations}
 =======================
@@ -580,7 +590,6 @@ Acknowledgments
 ===============
 
 The authors would like to thank among others Tirumaleswar Reddy; Andrew
-Mortensen; Mohamed Boucadair; Artyom Gavrichenkov; Jon Shallow the
-DOTS WG chairs, Roman Danyliw and Tobias Gondrom as well as the Security
-AD Benjamin Kaduk for their valuable
-feedback.
+Mortensen; Mohamed Boucadair; Artyom Gavrichenkov; Jon Shallow, Yuuhei
+Hayashi, the DOTS WG chairs, Roman Danyliw and Tobias Gondrom as well as
+the Security AD Benjamin Kaduk for their valuable feedback.
