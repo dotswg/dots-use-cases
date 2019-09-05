@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-19
+docname: draft-ietf-dots-use-cases-20
 
 
 area: Security
@@ -43,19 +43,6 @@ author:
         code: 4S 0B6
         country: Canada
         email: daniel.migault@ericsson.com
-      -
-        ins: S. Fouant
-        name: Stefan Fouant
-        org:
-        -
-        street:
-        -
-        city:
-        -
-        code:
-        -
-        country: USA
-        email: stefan.fouant@copperriverit.com
       -
         ins: R. Moskowitz
         name: Robert Moskowitz
@@ -594,3 +581,6 @@ The authors would like to thank among others Tirumaleswar Reddy; Andrew
 Mortensen; Mohamed Boucadair; Artyom Gavrichenkov; Jon Shallow, Yuuhei
 Hayashi, the DOTS WG chairs, Roman Danyliw and Tobias Gondrom as well as
 the Security AD Benjamin Kaduk for their valuable feedback.
+
+We also would like to thank Stephan Fouant that was part of the initial
+co-authors of the documents.  
