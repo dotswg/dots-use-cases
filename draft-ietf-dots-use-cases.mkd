@@ -253,7 +253,7 @@ Over the course of the attack, the DOTS server of the ITP periodically
 informs the DOTS client on the mitigation status,
 statistics related to DDoS attack traffic mitigation, and related
 information. Once the DDoS attack has ended, or decreased to the certain
-level that the enterprise DMS may handle by itself, the DOTS server
+level that the enterprise DMS might handle by itself, the DOTS server
 signals the enterprise DMS DOTS client that the attack has subsided.
 
 The DOTS client on the enterprise DMS then requests the ITP to terminate
@@ -372,7 +372,7 @@ Network. Redirection to the DDoS Mitigation Service Provider typically
 involves BGP prefix announcement or DNS redirection, while re-injection
 of the scrubbed traffic to the enterprise network may be performed via
 tunneling mechanisms (e.g., GRE). These exact mechanisms
-used for traffic steering are out of scope of DOTS, but will need to be pre-arranged, while in some context such changed could be detected and considered as an attack.  
+used for traffic steering are out of scope of DOTS, but will need to be pre-arranged, while in some contexts such changes could be detected and considered as an attack.  
 
 In some cases the communication between the enterprise DOTS client and
 the DOTS server of the DDoS Mitigation Service Provider may go through

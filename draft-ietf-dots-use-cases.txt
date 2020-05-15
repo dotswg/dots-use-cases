@@ -5,7 +5,7 @@
 DOTS                                                          R. Dobbins
 Internet-Draft                                            Arbor Networks
 Intended status: Informational                                D. Migault
-Expires: November 14, 2020                                      Ericsson
+Expires: November 16, 2020                                      Ericsson
                                                             R. Moskowitz
                                                           HTT Consulting
                                                                N. Teague
@@ -14,7 +14,7 @@ Expires: November 14, 2020                                      Ericsson
                                                                   Huawei
                                                             K. Nishizuka
                                                       NTT Communications
-                                                            May 13, 2020
+                                                            May 15, 2020
 
 
                 Use cases for DDoS Open Threat Signaling
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 14, 2020.
+   This Internet-Draft will expire on November 16, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 1]
+Dobbins, et al.         Expires November 16, 2020               [Page 1]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 2]
+Dobbins, et al.         Expires November 16, 2020               [Page 2]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -165,7 +165,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 3]
+Dobbins, et al.         Expires November 16, 2020               [Page 3]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -221,7 +221,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 4]
+Dobbins, et al.         Expires November 16, 2020               [Page 4]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -277,7 +277,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 5]
+Dobbins, et al.         Expires November 16, 2020               [Page 5]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -289,9 +289,9 @@ Internet-Draft               DOTS Use Cases                     May 2020
    periodically informs the DOTS client on the mitigation status,
    statistics related to DDoS attack traffic mitigation, and related
    information.  Once the DDoS attack has ended, or decreased to the
-   certain level that the enterprise DMS may handle by itself, the DOTS
-   server signals the enterprise DMS DOTS client that the attack has
-   subsided.
+   certain level that the enterprise DMS might handle by itself, the
+   DOTS server signals the enterprise DMS DOTS client that the attack
+   has subsided.
 
    The DOTS client on the enterprise DMS then requests the ITP to
    terminate the DDoS Mitigation.  The DOTS server on the ITP receives
@@ -333,7 +333,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 6]
+Dobbins, et al.         Expires November 16, 2020               [Page 6]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -389,7 +389,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 7]
+Dobbins, et al.         Expires November 16, 2020               [Page 7]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -439,13 +439,13 @@ Internet-Draft               DOTS Use Cases                     May 2020
    enterprise network may be performed via tunneling mechanisms (e.g.,
    GRE).  These exact mechanisms used for traffic steering are out of
    scope of DOTS, but will need to be pre-arranged, while in some
-   context such changed could be detected and considered as an attack.
+   contexts such changes could be detected and considered as an attack.
 
 
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 8]
+Dobbins, et al.         Expires November 16, 2020               [Page 8]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -501,7 +501,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020               [Page 9]
+Dobbins, et al.         Expires November 16, 2020               [Page 9]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -557,7 +557,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 10]
+Dobbins, et al.         Expires November 16, 2020              [Page 10]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -613,7 +613,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 11]
+Dobbins, et al.         Expires November 16, 2020              [Page 11]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -669,7 +669,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 12]
+Dobbins, et al.         Expires November 16, 2020              [Page 12]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -725,7 +725,7 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 13]
+Dobbins, et al.         Expires November 16, 2020              [Page 13]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -781,7 +781,7 @@ Authors' Addresses
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 14]
+Dobbins, et al.         Expires November 16, 2020              [Page 14]
 
 Internet-Draft               DOTS Use Cases                     May 2020
 
@@ -837,4 +837,4 @@ Internet-Draft               DOTS Use Cases                     May 2020
 
 
 
-Dobbins, et al.         Expires November 14, 2020              [Page 15]
+Dobbins, et al.         Expires November 16, 2020              [Page 15]
