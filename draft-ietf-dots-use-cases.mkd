@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-22
+docname: draft-ietf-dots-use-cases-23
 
 
 area: Security
@@ -83,6 +83,29 @@ author:
         country: Japan
         email: kaname@nttv6.jp
 
+normative:
+  RFC8783:
+    author: 
+      -
+        ins: M. Boucadair
+      -
+        ins: T. Reddy
+    target: https://www.rfc-editor.org/rfc/authors/rfc8783.html 
+    title: RFC8783 Distributed Denial-of-Service Open Threat Signaling (DOTS) Data Channel Specification (TO BE UPDATED)
+  RFC8782:
+    author: 
+      - 
+        ins: T. Reddy
+      - 
+        ins: M. Boucadair
+      - 
+        ins: P. Patil
+      - 
+        ins: A. Mortensen
+      - 
+        ins: N. Teague
+    target: https://www.rfc-editor.org/rfc/authors/test8782.html
+    title: RFC8782 Distributed Denial-of-Service Open Threat Signaling (DOTS) Signal Channel Specification (TO BE UPDATED)
 
 
 --- abstract
@@ -122,7 +145,7 @@ initiating/terminating DDoS mitigation assistance, or requesting the
 status of a DDoS mitigation.
 
 This document provides sample use cases that provided input for the design of
-the DOTS protocols {{!RFC8772}}{{!RFC8773}}. The use cases are not exhaustive and future use cases are
+the DOTS protocols {{RFC8782}}{{RFC8783}}. The use cases are not exhaustive and future use cases are
 expected to emerge as DOTS is adopted and evolves.
 
 
