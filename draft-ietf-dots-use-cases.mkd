@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-21
+docname: draft-ietf-dots-use-cases-22
 
 
 area: Security
@@ -113,14 +113,16 @@ can degrade the efficacy of mitigations.
 The DDoS Open Threat Signaling (DOTS) effort is intended to specify
 protocols that facilitate interoperability between diverse DDoS
 mitigation solutions and ensure greater integration in term of
-attack detection, mitigation requests, and attack characterization patterns. As DDoS
-solutions are broadly heterogeneous among vendors, the primary goal of
-DOTS is to provide high-level interaction amongst differing DDoS
-solutions, such as detecting, initiating/terminating DDoS mitigation assistance or
-requesting the status of a DDoS mitigation.
+attack detection, mitigation requests, and attack characterization patterns. 
+
+As DDoS solutions are broadly heterogeneous among vendors, the
+primary goal of DOTS is to provide high-level interaction amongst
+differing DDoS solutions, such as detecting DDoS attacks,
+initiating/terminating DDoS mitigation assistance, or requesting the
+status of a DDoS mitigation.
 
 This document provides sample use cases that provided input for the design of
-the DOTS protocols. The use cases are not exhaustive and future use cases are
+the DOTS protocols {{!RFC8772}}{{!RFC8773}}. The use cases are not exhaustive and future use cases are
 expected to emerge as DOTS is adopted and evolves.
 
 
