@@ -1,7 +1,7 @@
 ---
 title: Use cases for DDoS Open Threat Signaling
 abbrev: DOTS Use Cases
-docname: draft-ietf-dots-use-cases-23
+docname: draft-ietf-dots-use-cases-24
 
 
 area: Security
@@ -9,7 +9,7 @@ wg: DOTS
 kw: Internet-Draft
 cat: info
 
-coding: us-ascii
+coding: utf-8
 pi:
   rfcedstyle: yes
   toc: yes
@@ -83,30 +83,6 @@ author:
         country: Japan
         email: kaname@nttv6.jp
 
-normative:
-  RFC8783:
-    author: 
-      -
-        ins: M. Boucadair
-      -
-        ins: T. Reddy
-    target: https://www.rfc-editor.org/rfc/authors/rfc8783.html 
-    title: RFC8783 Distributed Denial-of-Service Open Threat Signaling (DOTS) Data Channel Specification (TO BE UPDATED)
-  RFC8782:
-    author: 
-      - 
-        ins: T. Reddy
-      - 
-        ins: M. Boucadair
-      - 
-        ins: P. Patil
-      - 
-        ins: A. Mortensen
-      - 
-        ins: N. Teague
-    target: https://www.rfc-editor.org/rfc/authors/test8782.html
-    title: RFC8782 Distributed Denial-of-Service Open Threat Signaling (DOTS) Signal Channel Specification (TO BE UPDATED)
-
 
 --- abstract
 
@@ -131,7 +107,7 @@ these solutions being a highly manual and often time-consuming process.
 Additionally, coordinating multiple DDoS mitigation solutions
 simultaneously is fraught with both technical and process-related
 hurdles. This greatly increases operational complexity which, in turn,
-can degrade the efficacy of mitigations.
+can degrade the efficacy of mitigations - which highly depends on  a timely reaction.
 
 The DDoS Open Threat Signaling (DOTS) effort is intended to specify
 protocols that facilitate interoperability between diverse DDoS
@@ -144,8 +120,8 @@ differing DDoS solutions, such as detecting DDoS attacks,
 initiating/terminating DDoS mitigation assistance, or requesting the
 status of a DDoS mitigation.
 
-This document provides sample use cases that provided input for the design of
-the DOTS protocols {{RFC8782}}{{RFC8783}}. The use cases are not exhaustive and future use cases are
+This document provides sample use cases that provided input for the requirements {{?RFC8612}} and design of
+the DOTS protocols {{?RFC8782}}{{?RFC8783}}. The use cases are not exhaustive and future use cases are
 expected to emerge as DOTS is adopted and evolves.
 
 
@@ -153,12 +129,8 @@ Terminology and Acronyms {#terminology-and-acronyms}
 ========================
 
 This document makes use of the same terminology and definitions as
-{{!RFC8612}}. In addition it uses the terms defined
+{{?RFC8612}}. In addition it uses the terms defined
 below:
-
-
-* DDoS Mitigation Service Provider: designates the administrative entity
-providing the DDoS Mitigation Service.
 
 * DDoS Mitigation System (DMS): A system that performs DDoS mitigation.
 The DDoS Mitigation System may be composed by a cluster of hardware
@@ -169,10 +141,13 @@ to another DDoS Mitigation System.
 * DDoS Mitigation: The action performed by the DDoS Mitigation System. 
 
 * DDoS Mitigation Service: designates a service provided to a
-customer to mitigate DDoS attacks. Service subscriptions usually involve Service
+customer to mitigate DDoS attacks. Each service subscription usually involve Service
 Level Agreement (SLA) that have to be met. It is the responsibility of
 the DDoS Service provider to instantiate the DDoS Mitigation System to
 meet these SLAs.
+
+* DDoS Mitigation Service Provider: designates the administrative entity
+providing the DDoS Mitigation Service.
 
  * Internet Transit Provider (ITP): designates the entity that delivers
 the traffic to a customer network. It can be an Internet Service Provider
@@ -186,8 +161,7 @@ Upstream DDoS Mitigation by an Upstream Internet Transit Provider {#use-case-1}
 ----------------------
 
 This use case describes how an enterprise or a residential customer
-network may take advantage of a pre-existing relation with its Internet
-Transit Provider (ITP) in order to mitigate a DDoS attack targeting its
+network may take advantage of a pre-existing relation with its ITP in order to mitigate a DDoS attack targeting its
 network. 
 
 For clarity of discussion, the targeted network is indicated as an enterprise
@@ -212,7 +186,7 @@ corresponds to the case when the enterprise network is under attack.
 source of an attack and send a mitigation request to the enterprise DMS
 to mitigate this at the source.
 
-The two scenarios, thought different, have similar interactions between
+The two scenarios, though different, have similar interactions between
 the DOTS client and server. For the sake of simplicity, only the first
 scenario will be detailed in this section. Nevertheless, the second scenario is also in scope for DOTS. 
 
@@ -289,32 +263,32 @@ Mitigation to the enterprise DMS DOTS client.
 The following is an overview of the DOTS communication model for this
 use-case:
 
-* (a) A DDoS attack is initiated against resources of a
+1. A DDoS attack is initiated against resources of a
 network organization (here, the enterprise) which has deployed a
 DOTS-capable DMS - typically a DOTS client.
 
-* (b) The enterprise DMS detects, classifies, and begins the DDoS
+2. The enterprise DMS detects, classifies, and begins the DDoS
  Mitigation.
 
-* (c) The enterprise  DMS determines that its capacity and/or capability
+3. The enterprise  DMS determines that its capacity and/or capability
 to mitigate the DDoS attack is insufficient, and sends via its DOTS
 client a DOTS DDoS Mitigation request to one or more DOTS servers
 residing on the upstream ITP.
 
-* (d) The DOTS server which receives the DOTS Mitigation request
+4. The DOTS server which receives the DOTS Mitigation request
 determines that it has been configured to honor requests from the
 requesting DOTS client, and honors the request by orchestrating
 its own DMS.
 
-* (e) While the DDoS Mitigation is active, the DOTS server
+5. While the DDoS Mitigation is active, the DOTS server
 regularly transmits DOTS DDoS Mitigation status updates to the DOTS
 client.
 
-* (f) Informed by the DOTS server status update that the attack has
+6. Informed by the DOTS server status update that the attack has
 ended or subsided, the DOTS client transmits a DOTS DDoS Mitigation
 termination request to the DOTS server.
 
-* (g) The DOTS server terminates DDoS Mitigation, and sends the
+7. The DOTS server terminates DDoS Mitigation, and sends the
 notification to the DOTS client.
 
 
@@ -396,7 +370,7 @@ well as the mechanism to re-inject the traffic back to the Enterprise
 Network. Redirection to the DDoS Mitigation Service Provider typically
 involves BGP prefix announcement or DNS redirection, while re-injection
 of the scrubbed traffic to the enterprise network may be performed via
-tunneling mechanisms (e.g., GRE). These exact mechanisms
+tunneling mechanisms (e.g., GRE). The exact mechanisms
 used for traffic steering are out of scope of DOTS, but will need to be pre-arranged, while in some contexts such changes could be detected and considered as an attack.  
 
 In some cases the communication between the enterprise DOTS client and
@@ -453,7 +427,7 @@ various DMS's within the domain. The DDoS telemetry systems may be
 configured to provide required information, such as a preliminary
 analysis of the observation, to the orchestrator.
 
-The orchestrator analyses the various information it receives from DDoS
+The orchestrator analyses the various sets of information it receives from DDoS
 telemetry systems, and initiates one or more DDoS mitigation
 strategies. For example, the orchestrator could select the DDoS
 mitigation system in the enterprise network or one provided by the ITP.
@@ -473,7 +447,7 @@ DOTS. The DDoS telemetry system implements a DOTS client while the
 orchestrator implements a DOTS server.
 
 The communication between a network administrator and the orchestrator
-is also performed using DOTS. The network administrator uses a web
+is also performed using DOTS. The network administrator uses, for example, a web
 interface which interacts with a DOTS client, while the orchestrator
 implements a DOTS server.
 
@@ -515,14 +489,14 @@ functions is not part of DOTS; and as such is out of scope.
 
 
 
-The DDoS telemetry systems monitor various network traffic and perform
+The DDoS telemetry systems monitor various aspect of the network traffic and perform
 some measurement tasks. 
 
 These systems are configured so that when an event or some measurement
 indicators reach a predefined level their associated DOTS client sends a
 DOTS mitigation request to the orchestrator DOTS server. The DOTS
 mitigation request may be associated with some optional mitigation hints
-to let the orchestrator know what has triggered the request. In particular, it's possible for something that locally to one telemetry system looks like an attack is not actually an attack when seen from the broader scope (e.g., of the orchestrator)
+to let the orchestrator know what has triggered the request. In particular, it is possible for something that locally to one telemetry system looks like an attack is not actually an attack when seen from the broader scope (e.g., of the orchestrator)
 
 Upon receipt of the DOTS mitigation request from the DDoS telemetry
 system, the orchestrator DOTS server responds with an acknowledgment, to
@@ -535,13 +509,13 @@ system; however, the collection of this information is out of scope of DOTS.
 
 The orchestrator may be configured to start a DDoS Mitigation upon
 approval from a network administrator. The analysis from the
-orchestrator is reported to the network administrator via a web
+orchestrator is reported to the network administrator via, for example, a web
 interface. If the network administrator decides to start the mitigation,
-the network administrator triggers the DDoS mitigation request using the
+the network administrator triggers the DDoS mitigation request using, for example, a
 web interface of a DOTS client communicating to the orchestrator DOTS
 server. This request is expected to be associated with a context that
-provides sufficient information to the orchestrator DOTS server to infer
-the DDoS Mitigation to elaborate and coordinate.
+provides sufficient information to the orchestrator DOTS server to infer,  elaborate and coordinate
+the appropriated DDoS Mitigation.
 
 Upon receiving a request to mitigate a DDoS attack aimed at a
 target, the orchestrator may evaluate the volume of the attack as
@@ -556,10 +530,10 @@ DDoS mitigation systems via its DOTS client, as described in Section
 
 The orchestrator DOTS client is notified that the DDoS Mitigation is
 effective by the selected DDoS mitigation systems. The orchestrator DOTS
-servers returns this information back to the network administrator. 
+server returns this information back to the network administrator. 
 
 Similarly, when the DDoS attack has stopped, the orchestrator DOTS
-client is notified and the orchestrator's DOTS servers indicate
+client is notified and the orchestrator's DOTS server indicates
 to the DDoS telemetry systems as well as to the network administrator
 the end of the DDoS Mitigation.
 
@@ -569,7 +543,7 @@ orchestrator as an offloading. For example, when the DDoS attack becomes severe 
 the DDoS mitigation system's utilization rate reaches its maximum
 capacity, the DDoS mitigation system can send mitigation requests with
 additional hints such as its blocked traffic information to the
-orchestrator.  Then the orchestrator can take further actions like
+orchestrator.  Then the orchestrator can take further actions such as 
 requesting forwarding nodes such as routers to filter the traffic. In
 this case, the DDoS mitigation system implements a DOTS client while the
 orchestrator implements a DOTS server. Similar to other DOTS use cases, the offloading scenario assumes that some validation checks are followed by the DMS, the orchestrator, or both (e.g., avoid exhausting the resources of the forwarding nodes or inadvertent disruption of legitimate services). These validation checks are part of the mitigation, and are therefore out of the scope of the document. 
@@ -607,7 +581,7 @@ Acknowledgments
 
 The authors would like to thank among others Tirumaleswar Reddy; Andrew
 Mortensen; Mohamed Boucadair; Artyom Gavrichenkov; Jon Shallow, Yuuhei
-Hayashi, the DOTS WG chairs, Roman Danyliw and Tobias Gondrom as well as
+Hayashi, Elwyn Davies, the DOTS WG chairs, Roman Danyliw and Tobias Gondrom as well as
 the Security AD Benjamin Kaduk for their valuable feedback.
 
 We also would like to thank Stephan Fouant that was part of the initial
